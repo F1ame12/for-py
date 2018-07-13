@@ -56,3 +56,30 @@ r = int(input())
 c=pai*r*r
 print('面积是：',c)
 #youngniu
+
+#black-chocolate
+'''
+if 真值表达式
+    语句1
+elif 真值表达式2
+    语句2
+elif 真值表达式 3
+    语句3
+else:
+    语句4
+'''
+import random
+
+randber = random.randint(0,10)
+number = int(input())
+if number < randber:
+    print("猜小了")
+elif number > randber:
+    print("猜大了")
+else :
+    print("猜对了")
+
+#猜数字游戏   10  5  2 提示用户猜小了
+
+
+#black-chocolate
