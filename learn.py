@@ -48,5 +48,18 @@ print(num)
 
 
 #youngniu
-#1.数据运算
+#===数据运算===
+print('===数据运算===')
+# 1地板除运算：//，向下取整
+print(-5//2)
+print(5//2)
+# 2幂运算：**
+print(2**2)
+
+print('===计算面积===')
+pai=3.1415926
+print('输入半径')
+r = int(input())
+c=pai*r*r
+print('面积是：',c)
 #youngniu
