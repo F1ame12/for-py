@@ -47,6 +47,10 @@ print('a==b?',a is b)
 print('a!=b?',a is not b)
 print('a==c?', a is c)
 
+#for循环
+for x in range(1,6):
+    print('num is',x)
+
 # feathershine
 
 
