@@ -34,8 +34,18 @@ print('5.num is %d %d' % (666,555))
 print('6.num is %f' % 5.5)
 print('6.string is %s' % 'test')
 print('====End====')
-#计算符(+、-、*、/、//（整除，“地板除”）、**（幂运算）)
+#运算符(+、-、*、/、//（整除，“地板除”）、**（幂运算）)
 print('2*2=%f 5/2=%f 5//2=%f 5**2=%d' % (2*2,5/2,5//2,5**2))
+'''
+is运算符 a is b   a is not b
+判断两个变量是否引用同一个对象，同一个返回True，不同返回False
+'''
+a = 50
+b = 50
+c = 100
+print('a==b?',a is b)
+print('a!=b?',a is not b)
+print('a==c?', a is c)
 
 # feathershine
 
