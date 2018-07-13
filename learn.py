@@ -10,18 +10,19 @@ import random
 '''
 print('====变量类型测试====')
 varA = 50
-print(varA)
+print('1.', varA)
 varA = 'hello world'
-print(varA)
+print('2.', varA)
 varA = 0.5
-print(varA)
+print('3.', varA)
 varA = True
-print(varA)
+print('4.', varA)
 print('====End====')
 '''
 print()是python提供的基本输出函数
 print函数可输出各类基本的数据类型
 '''
+print('====print输出测试====')
 print('1.hello world!')
 #不同数据之间通过逗号可分开，实际输出逗号会转化为空格
 print('2.this','is',1,'word')
@@ -29,20 +30,22 @@ print('2.this','is',1,'word')
 print('3.hello'+'world')
 print('4.repeat twice'*2)
 #print亦可以格式化输出，常用替换符整型%d、浮点型%f、字符串%s
-print('5.num is %d' % 666)
+print('5.num is %d %d' % (666,555))
 print('6.num is %f' % 5.5)
 print('6.string is %s' % 'test')
-
-def fun(a):
-    if a>50:
-        print('true')
-    else:
-        print('false')
-    return
- 
-num = 5
-fun(num)
-print(num)
+print('====End====')
+#运算符(+、-、*、/、//（整除，“地板除”）、**（幂运算）)
+print('2*2=%f 5/2=%f 5//2=%f 5**2=%d' % (2*2,5/2,5//2,5**2))
+'''
+is运算符 a is b   a is not b
+判断两个变量是否引用同一个对象，同一个返回True，不同返回False
+'''
+a = 50
+b = 50
+c = 100
+print('a==b?',a is b)
+print('a!=b?',a is not b)
+print('a==c?', a is c)
 
 # feathershine
 
