@@ -40,7 +40,11 @@ def fun(a):
         print('false')
     return
  
+<<<<<<< HEAD
 num = 5
+=======
+num = 555
+>>>>>>> 4f7757d30016c0f59ed77100d39a4083ef4ddcae
 fun(num)
 print(num)
 
