@@ -40,7 +40,7 @@ def fun(a):
         print('false')
     return
  
-num = 55
+num = 5
 fun(num)
 print(num)
 
