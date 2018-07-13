@@ -47,3 +47,6 @@ print(num)
 # feathershine
 
 
+#youngniu
+#1.数据运算
+#youngniu
