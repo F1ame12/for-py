@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding=utf-8 -*-
-
+import random
 # 这里是python学习过程中的总结
 
 # author: feathershine
@@ -65,8 +65,38 @@ print(2**2)
 
 print('===计算面积===')
 pai=3.1415926
-print('输入半径')
-r = int(input())
+#print('输入半径')
+r = int(input('输入半径：'))
 c=pai*r*r
 print('面积是：',c)
+
+a='niu'
+b='jing'
+
+a1=1
+b1=2
+
+a2=False
+b2=True
+
+print(a or b)
+print(a1 or b1)
+print(a2 or b2)
+
+#产生0-10的随机整数，包括0和10
+print('产生一个0-10的随机数',random.randint(0,10))
+
+#猜数字游戏
+a = random.randint(0,10)
+flag = True
+while(flag):
+    b=int(input('猜一个0-10的随机数，包括0与10:'))
+    if(b<a):
+        print('猜小了')
+    elif(b>a):
+        print('猜大了')
+    else:
+        print('恭喜，猜对了')
+        flag=False
+
 #youngniu
