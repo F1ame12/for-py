@@ -39,7 +39,7 @@ def fun(a):
     else:
         print('false')
     return
-
+ 
 num = 55
 fun(num)
 print(num)
