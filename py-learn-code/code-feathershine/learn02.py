@@ -14,6 +14,9 @@ b = range(3)
 print(list(a))
 print(isinstance(b, range))
 
+a = '*'
+a *= 5
+
 '''
 str_test = input()
 print('the input str\'s len is', len(str_test))
