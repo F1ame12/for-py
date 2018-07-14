@@ -1,1 +1,0 @@
-print("",value,....,sep="",end="\n",flush=False,file=sys.stdout)
