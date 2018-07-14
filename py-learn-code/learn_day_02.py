@@ -26,7 +26,8 @@ if "niu" in "niujingxiang":
     print("niujingxiang 中有 niu")
 
 #5.切片
-testStr = "niujingxiang"
+testStr = " Niujingxiang "
+testNumber=123456
 #print("切片：",testStr[0,2]) 
 print("切片：",testStr[0:2])
 print("切片：",testStr[0:2:1])
@@ -36,6 +37,12 @@ print("切片：",testStr[:5])#相当于[0:6:1]从开始位置截取5个
 print("切片[-3:]：",testStr[-3:])# ang
 print("切片[::-1]：",testStr[::-1])#gnaixgnijuin
 
+#6.字符串的操作
+print("变小写：",testStr.lower())
+print("变大写：",testStr.upper())
+print("判断是否为英文字母：",testStr.isalpha())
+print("判断是否为数字：",testStr.isdigit())
+print("返回字符串中子字符串的个数：",testStr.count(sub,[,start[,end]]))
 #youngniu
 
 # author: feathershine

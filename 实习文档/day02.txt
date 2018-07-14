@@ -72,5 +72,9 @@ s.islower():判断字符串是否都为小写字母
 s.strip():返回去掉两端空白字符的字符串
 s.lstrip():返回去掉左端为空白字符的字符串
 s.rstrip():返回去掉右端为空白字符的字符串
-s.count(sub,[,start[.end]]):返回字符串中子字符串的个数
-s.find(sub[,start[.end]])返回一个字符串sub的索引，没有返回-1
+s.count(sub,[,start[,end]]):返回字符串中子字符串的个数
+s.find(sub[,start[,end]])返回一个字符串sub的索引，没有返回-1
+s.replace(old,new[,max]):用新字符串代替旧的字符串
+old-被替换的字符串
+new-新字符串，用于替换旧的字符串
+max-替换的最大字数
