@@ -50,9 +50,9 @@ for x in range(1,11):
 '''
 
 for x in range(1,6):
-    for a in range(1,6):
-        print("*",end = "")
-    for m in range(1,10):
+    for a in range(1,6):        #实现第一个图形
+        print("*",end = "")     #实现空格
+    for m in range(1,10):       #以此类推
         print(" ",end = "")
     for b in range(0,x):
         print("*",end = "")
@@ -69,5 +69,5 @@ for x in range(1,6):
     for z in range(0,x*2-1):
         print("*",end="")
     print()
-    
+
 #black-chocolate
