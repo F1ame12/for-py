@@ -21,6 +21,21 @@ str_link+=str_link
 print("2.str+=:",str_link)
 print("3.str_link*3:",str_link*3)
 
+#4.in|not in 运算符
+if "niu" in "niujingxiang":
+    print("niujingxiang 中有 niu")
+
+#5.切片
+testStr = "niujingxiang"
+#print("切片：",testStr[0,2]) 
+print("切片：",testStr[0:2])
+print("切片：",testStr[0:2:1])
+print("切片：",testStr[:3:1])#第一参数省略的话就相当于testStr[0:3:1]
+print("切片：",testStr[2::1])#第一参数省略的话就相当于从索引为2的字符开始一直导结束testStr[2::1]
+print("切片：",testStr[:5])#相当于[0:6:1]从开始位置截取5个
+print("切片[-3:]：",testStr[-3:])# ang
+print("切片[::-1]：",testStr[::-1])#gnaixgnijuin
+
 #youngniu
 
 # author: feathershine

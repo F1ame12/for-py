@@ -26,3 +26,36 @@ str(Object):将o转换为字符串类型（o可以为任意对象）
 +=  ：用于连接字符串并改变变量的绑定str="123" str+="123"
 *   ：用于生成重复字符串,只能跟整数
 *=  ：用于生成重复字符串并改变变量的绑定
+
+4.in 和 not in 运算符
+用于序列，字典，集合，中判断某个值是否存在于该对象中（存在返回True，不存在返回False）
+if "niu" in "niujingxiang"
+    print("niujingxiang 中有 niu")
+
+5.Shebang
+大部分.py文件不必以#!作为文件的开始. 根据 PEP-394 , 程序的main文件应该以 #!/usr/bin/python2或者 #!/usr/bin/python3开始.
+(译者注: 在计算机科学中, Shebang (也称为Hashbang)是一个由井号和叹号构成的字符串行(#!), 其出现在文本文件的第一行的前两个字符.
+在文件中存在Shebang的情况下, 类Unix操作系统的程序载入器会分析Shebang后的内容, 将这些内容作为解释器指令, 并调用该指令,
+并将载有Shebang的文件路径作为该解释器的参数. 例如, 以指令#!/bin/sh开头的文件在执行时会实际调用/bin/sh程序.)
+#!先用于帮助内核找到Python解释器, 但是在导入模块时, 将会被忽略. 因此只有被直接执行的文件中才有必要加入#!.
+
+6.索引
+Python字符串是不可改变的字符序列
+语法：字符串[整数值]
+说明：
+序列都可以用索引来访问序列中的对象
+正索引：0，1，2，3....len(str)-1
+反索引：-1，-2，-3...-len(str)
+
+7.切片（slice）
+作用：从已知序列中任意截取一部分,重新组成一个新的字符序列
+语法：字符串[(start：end：span)]    三个值都必须是整数值
+start：开始的位置
+end：结束的位置（拿不到索引位置的值）   如：abcde[0:4:1]=abcd
+span：截取的间隔
+testStr = "niujingxiang"
+testStr[:3:1]   #第一参数省略的话就相当于testStr[0:3:1] niu
+testStr[2::1]   #第一参数省略的话就相当于从索引为2的字符开始一直导结束testStr[2::1] ujingxiang
+testStr[:5]     #相当于[0:6:1]从开始位置截取5个
+testStr[-3:]    # ang
+testStr[::-1]   #gnaixgnijuin 如果参数为负数，切片变为[span:end:start]
