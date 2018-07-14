@@ -42,7 +42,6 @@ print('the list len is', len(str_list))
 
 
 # feathershine
-<<<<<<< HEAD
 
 #black-chocolate
 '''
@@ -117,13 +116,13 @@ print("输出",a,b,c,sep=",",end=".",flush=False)
         例如：
             s = "ABCDE"
             s[0,2]  #
-            s[2:4:1] #
+            s[2:4:1] # CD
             s[2:2] #
-            s[2::1] #
+            s[2::1] #  ::表示末端  第三个长度表示步长
             s[2:0] #
+            s[:5]  #
+    
 '''
     
 
 #black-chocolate
-=======
->>>>>>> 76e6d1232d305bf849fd6c845eb66be649f4d218
