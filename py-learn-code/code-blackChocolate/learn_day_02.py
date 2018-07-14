@@ -69,6 +69,4 @@ for x in range(1,6):
     for z in range(0,x*2-1):
         print("*",end="")
     print()
-
-    
 #black-chocolate
