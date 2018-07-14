@@ -42,7 +42,7 @@ print("变小写：",testStr.lower())
 print("变大写：",testStr.upper())
 print("判断是否为英文字母：",testStr.isalpha())
 print("判断是否为数字：",testStr.isdigit())
-print("返回字符串中子字符串的个数：",testStr.count(sub,[,start[,end]]))
+print("返回字符串中子字符串的个数：",testStr.count('ing',0,len(testStr)))
 #youngniu
 
 # author: feathershine
