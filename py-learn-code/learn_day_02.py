@@ -1,6 +1,6 @@
 #!usr/bin/python3
 # -*- coding=utf-8 -*-
-
+import random
 #youngniu
 
 #1.test print()
@@ -26,7 +26,7 @@ if "niu" in "niujingxiang":
     print("niujingxiang 中有 niu")
 
 #5.切片
-testStr = " Niu jing xiang "
+testStr = "Niujingxiang"
 testNumber='123456'
 #print("切片：",testStr[0,2]) 
 print("切片：",testStr[0:2])
@@ -44,9 +44,21 @@ print("判断是否为英文字母：",testStr.isalpha())
 print("判断是否为数字：",testStr.isdigit())
 print("判断是否为数字：",testNumber.isdigit())
 print("去掉两端的空白字符：",testStr.strip())
-#print("返回字符串中子字符串的个数：",testStr.count(sub,[,start[,end]]))
+print("返回字符串中子字符串的个数：",testStr.count("ng"))
 
-
+#7.循环
+#猜数字游戏
+a = random.randint(0,10)
+flag = True
+while(flag):
+    b=int(input('猜一个0-10的随机数，包括0与10:'))
+    if(b<a):
+        print('猜小了')
+    elif(b>a):
+        print('猜大了')
+    else:
+        print('恭喜，猜对了')
+        flag=False
 
 #youngniu
 
