@@ -26,7 +26,8 @@ if "niu" in "niujingxiang":
     print("niujingxiang 中有 niu")
 
 #5.切片
-testStr = "niujingxiang"
+testStr = " Niu jing xiang "
+testNumber='123456'
 #print("切片：",testStr[0,2]) 
 print("切片：",testStr[0:2])
 print("切片：",testStr[0:2:1])
@@ -36,7 +37,20 @@ print("切片：",testStr[:5])#相当于[0:6:1]从开始位置截取5个
 print("切片[-3:]：",testStr[-3:])# ang
 print("切片[::-1]：",testStr[::-1])#gnaixgnijuin
 
+#6.字符串的操作
+print("变小写：",testStr.lower())
+print("变大写：",testStr.upper())
+print("判断是否为英文字母：",testStr.isalpha())
+print("判断是否为数字：",testStr.isdigit())
+print("判断是否为数字：",testNumber.isdigit())
+print("去掉两端的空白字符：",testStr.strip())
+#print("返回字符串中子字符串的个数：",testStr.count(sub,[,start[,end]]))
+
+
+
 #youngniu
+
+
 
 # author: feathershine
 import random
@@ -45,13 +59,14 @@ def random_str(length=8):
     #if (length is not type(0))
     char_list = []
     result_str = ''
-    for x in range(0,8):
-        ascii_num = random.randint(41,123)
-        char_list.append(chr(ascii_num))
+    strRange = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    for x in range(0, int(length)):
+        num = random.randint(0, len(strRange)-1)
+        char_list.append(strRange[num])
     return result_str.join(char_list)
 
 str_test = input()
-print('the input str\'s len is',len(str_test))
+print('the input str\'s len is', len(str_test))
 print('ths str max char is', max(str_test))
 print('the str min char is', min(str_test))
 print(str(123456))# 将其他数据类型转为字符串
@@ -76,4 +91,13 @@ s.find("Py"),s.replace("l","o",1))
 s = input()
 print(s.replace("123","321"))  
 
+number = int(input())
+randber = random.randint(0,10)
+while number != randber: 
+    number = int(input())
+    if number < randber:
+        print("猜小了")
+    else:
+        print("猜大了")
+print("猜的针对，真聪明")
 #black-chocolate
