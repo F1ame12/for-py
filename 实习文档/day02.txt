@@ -1,8 +1,17 @@
-基本输出函数print
+1基本输出函数print
 print("",value,....,sep="",end="\n",flush=False,file=sys.stdout)
 "提示信息"
 value：值
 sep：分隔符
 end：结束标识
-flush：缓冲 -是否立即将流输出
+flush：缓冲 -是否立即将流输出(True/False)
+            -程序结束缓冲区的内容会被输出
+            -碰到换行标记缓冲区的内容不会被输出
 file：对象流 -默认为 sys.stdout
+
+2.字符串
+序列中的一种：按一定的顺序进行排列
+''      :
+""      :
+''' ''' :在没有赋值的情况下是注释
+""" """ :
