@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding=utf-8 -*-
-
+import random
 # 这里是python学习过程中的总结
 
 # author: feathershine
@@ -34,6 +34,14 @@ print('4.repeat twice'*2)
 print('5.num is %d %d' % (666,555))
 print('6.num is %f' % 5.5)
 print('6.string is %s' % 'test')
+#print格式  print('',value,value,value,……,sep='',end='\n',flush=false,file=sys.stdout)
+'''
+'': 提示信息
+value: 值
+sep: 分隔符（缺省的是一个空格）
+end: 结束标识（缺省的是换行符）
+flush: 缓冲 - 是否
+'''
 print('====End====')
 #运算符(+、-、*、/、//（整除，“地板除”）、**（幂运算）)
 print('2*2=%f 5/2=%f 5//2=%f 5**2=%d' % (2*2,5/2,5//2,5**2))
@@ -47,6 +55,10 @@ c = 100
 print('a==b?',a is b)
 print('a!=b?',a is not b)
 print('a==c?', a is c)
+
+#for循环
+for x in range(1,6):
+    print('num is',x)
 
 # feathershine
 
@@ -62,13 +74,13 @@ print(2**2)
 
 print('===计算面积===')
 pai=3.1415926
-print('输入半径')
-r = int(input())
+#print('输入半径')
+r = int(input('输入半径：'))
 c=pai*r*r
 print('面积是：',c)
 #youngniu
 
-#black-chocolate
+
 
 if 真值表达式
     语句1
@@ -122,6 +134,7 @@ print("输出",a,b,c,sep=",",end=".",flush=False)
     len(str):   返回字符串的长度
     max(str):   返回字符串中最大的字符
     min(str):   返回字符串中最小的字符
+    str(0): 将o转换为字符串类型（o可以为任何对象）
     d = """I'm a teacher"""
     f = len(d)
     print("输出",f)
