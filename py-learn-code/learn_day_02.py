@@ -67,11 +67,13 @@ print('we create 3 random str is',random_str(),random_str(),random_str())
 # feathershine
  
 #black-chocolate
-
+'''
 s = "Hello Python"
 print(s.lower(),s.upper(),s.title(),s.isdigit(),s.islower(),
 s.isupper(),s.isalpha(),s.strip(),s.rstrip(),s.lstrip(),s.count("He"),
 s.find("Py"),s.replace("l","o",1))
-    
+'''
+s = input()
+print(s.replace("123","321"))  
 
 #black-chocolate
