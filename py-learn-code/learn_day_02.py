@@ -45,13 +45,14 @@ def random_str(length=8):
     #if (length is not type(0))
     char_list = []
     result_str = ''
-    for x in range(0,8):
-        ascii_num = random.randint(41,123)
-        char_list.append(chr(ascii_num))
+    strRange = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    for x in range(0, int(length)):
+        num = random.randint(0, len(strRange)-1)
+        char_list.append(strRange[num])
     return result_str.join(char_list)
 
 str_test = input()
-print('the input str\'s len is',len(str_test))
+print('the input str\'s len is', len(str_test))
 print('ths str max char is', max(str_test))
 print('the str min char is', min(str_test))
 print(str(123456))# 将其他数据类型转为字符串
