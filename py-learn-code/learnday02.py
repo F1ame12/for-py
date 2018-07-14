@@ -1,3 +1,6 @@
+#!usr/bin/python3
+# -*- coding=utf-8 -*-
+
 #youngniu
 
 #1.test print()
@@ -18,6 +21,12 @@ str_link+=str_link
 print("2.str+=:",str_link)
 print("3.str_link*3:",str_link*3)
 
-
 #youngniu
 
+# author: feathershine
+str_test = input()
+print('the input str\'s len is',len(str_test))
+print('ths str max char is', max(str_test))
+print('the str min char is', min(str_test))
+print(str(123456))# 将其他数据类型转为字符串
+# feathershine
