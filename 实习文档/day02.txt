@@ -1,0 +1,8 @@
+基本输出函数print
+print("",value,....,sep="",end="\n",flush=False,file=sys.stdout)
+"提示信息"
+value：值
+sep：分隔符
+end：结束标识
+flush：缓冲 -是否立即将流输出
+file：对象流 -默认为 sys.stdout

@@ -33,6 +33,14 @@ print('4.repeat twice'*2)
 print('5.num is %d %d' % (666,555))
 print('6.num is %f' % 5.5)
 print('6.string is %s' % 'test')
+#print格式  print('',value,value,value,……,sep='',end='\n',flush=false,file=sys.stdout)
+'''
+'': 提示信息
+value: 值
+sep: 分隔符（缺省的是一个空格）
+end: 结束标识（缺省的是换行符）
+flush: 缓冲 - 是否
+'''
 print('====End====')
 #运算符(+、-、*、/、//（整除，“地板除”）、**（幂运算）)
 print('2*2=%f 5/2=%f 5//2=%f 5**2=%d' % (2*2,5/2,5//2,5**2))
