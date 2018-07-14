@@ -57,7 +57,6 @@ print('the list len is', len(str_list))
 
 
 # feathershine
-<<<<<<< HEAD
 
 #black-chocolate
 '''
@@ -140,5 +139,3 @@ print("输出",a,b,c,sep=",",end=".",flush=False)
     
 
 #black-chocolate
-=======
->>>>>>> 76e6d1232d305bf849fd6c845eb66be649f4d218
