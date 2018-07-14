@@ -36,6 +36,7 @@ print('6.num is %f' % 5.5)
 print('6.string is %s' % 'test')
 #print格式  print('',value,value,value,……,sep='',end='\n',flush=false,file=sys.stdout)
 '''
+'''
 '': 提示信息
 value: 值
 sep: 分隔符（缺省的是一个空格）
@@ -81,7 +82,7 @@ print('面积是：',c)
 #youngniu
 
 
-
+'''
 if 真值表达式
     语句1
 elif 真值表达式2
