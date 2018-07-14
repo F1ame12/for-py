@@ -8,6 +8,7 @@ import random
 变量类型共有：整型int，字符串string，浮点型float，布尔型bool
 但一个变量可以不限类型，可以存储以上各种类型，测试如下
 '''
+'''
 print('====变量类型测试====')
 varA = 50
 print('1.', varA)
@@ -19,8 +20,8 @@ varA = True
 print('4.', varA)
 print('====End====')
 '''
-print()是python提供的基本输出函数
-print函数可输出各类基本的数据类型
+#print()是python提供的基本输出函数
+#print函数可输出各类基本的数据类型
 '''
 print('====print输出测试====')
 print('1.hello world!')
@@ -45,8 +46,8 @@ print('====End====')
 #运算符(+、-、*、/、//（整除，“地板除”）、**（幂运算）)
 print('2*2=%f 5/2=%f 5//2=%f 5**2=%d' % (2*2,5/2,5//2,5**2))
 '''
-is运算符 a is b   a is not b
-判断两个变量是否引用同一个对象，同一个返回True，不同返回False
+#is运算符 a is b   a is not b
+#判断两个变量是否引用同一个对象，同一个返回True，不同返回False
 '''
 a = 50
 b = 50
@@ -77,34 +78,67 @@ pai=3.1415926
 r = int(input('输入半径：'))
 c=pai*r*r
 print('面积是：',c)
-
-a='niu'
-b='jing'
-
-a1=1
-b1=2
-
-a2=False
-b2=True
-
-print(a or b)
-print(a1 or b1)
-print(a2 or b2)
-
-#产生0-10的随机整数，包括0和10
-print('产生一个0-10的随机数',random.randint(0,10))
-
-#猜数字游戏
-a = random.randint(0,10)
-flag = True
-while(flag):
-    b=int(input('猜一个0-10的随机数，包括0与10:'))
-    if(b<a):
-        print('猜小了')
-    elif(b>a):
-        print('猜大了')
-    else:
-        print('恭喜，猜对了')
-        flag=False
-
 #youngniu
+
+
+
+if 真值表达式
+    语句1
+elif 真值表达式2
+    语句2
+elif 真值表达式 3
+    语句3
+else:
+    语句4
+
+import random
+
+randber = random.randint(0,10)
+number = int(input())
+if number < randber:
+    print("猜小了")
+elif number > randber:
+    print("猜大了")
+else :
+    print("猜对了")
+
+#猜数字游戏   10  5  2 提示用户猜小了
+'''
+
+#black-chocolate
+'''
+基本输出函数：print
+print("提示信息",value,value,....,sep="",end="\n",flush =False,file=sys.stdout)
+"":提示信息
+value:值
+sep:分隔符(缺省的是一个空格)
+end:结束标识（缺省的是换行符）
+flush:缓冲  - 是否立即将流输出（True/False）
+    -程序结束缓冲区中的内容
+file :对象流  - 默认为sys.stdoutf
+
+a = 10
+b = 20
+c = 30
+c = "I'm a teacher"
+print("输出",a,b,c,sep=",",end=".",flush=False)
+
+字符串：
+    序列的一种  - 按一定顺序进行排列
+    ''               eg: 'I'm a teacher'出错
+    ""               所见即所得
+    '''  '''         所见即所得 
+    """  """         所见即所得
+
+字符串常用函数:
+    len(str):   返回字符串的长度
+    max(str):   返回字符串中最大的字符
+    min(str):   返回字符串中最小的字符
+    str(0): 将o转换为字符串类型（o可以为任何对象）
+    d = """I'm a teacher"""
+    f = len(d)
+    print("输出",f)
+'''
+
+
+#black-chocolate
