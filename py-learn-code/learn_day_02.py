@@ -42,9 +42,7 @@ print("变小写：",testStr.lower())
 print("变大写：",testStr.upper())
 print("判断是否为英文字母：",testStr.isalpha())
 print("判断是否为数字：",testStr.isdigit())
-<<<<<<< HEAD
 print("返回字符串中子字符串的个数：",testStr.count('ing',0,len(testStr)))
-=======
 print("判断是否为数字：",testNumber.isdigit())
 print("去掉两端的空白字符：",testStr.strip())
 print("返回字符串中子字符串的个数：",testStr.count("ng"))
@@ -63,7 +61,6 @@ while(flag):
         print('恭喜，猜对了')
         flag=False
 
->>>>>>> 57e6081783f3397609a7d3505efef4c3a3bf96db
 #youngniu
 
 
