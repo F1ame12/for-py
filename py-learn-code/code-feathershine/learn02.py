@@ -14,8 +14,11 @@ b = range(3)
 print(list(a))
 print(isinstance(b, range))
 
-a = '*'
-a *= 5
+import mylogger
+
+logger = mylogger.getLogger(loglevel='debug',name=__name__)
+
+logger.info('test log text')
 
 '''
 str_test = input()
