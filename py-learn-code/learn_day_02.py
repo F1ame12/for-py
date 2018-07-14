@@ -24,8 +24,16 @@ print("3.str_link*3:",str_link*3)
 #youngniu
 
 # author: feathershine
-def random_str():
-    pass
+import random
+def random_str(length=8):
+    """随机8位ascii码存入集合生成随机字符串"""
+    #if (length is not type(0))
+    char_list = []
+    result_str = ''
+    for x in range(0,8):
+        ascii_num = random.randint(41,123)
+        char_list.append(chr(ascii_num))
+    return result_str.join(char_list)
 
 str_test = input()
 print('the input str\'s len is',len(str_test))
@@ -38,7 +46,7 @@ print('now the str is', str_test)
 str_list = []
 str_list.append(str_test)
 print('the list len is', len(str_list))
-
+print('we create 3 random str is',random_str(),random_str(),random_str())
 
 
 # feathershine
