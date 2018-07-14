@@ -23,8 +23,6 @@ s="HelloPython"
   例: 请输入:  abcdabcabazzzzz  打印:  字符"a"的个数为:4    
 '''
 
-
-
 s = 'HelloPython'
 print('1.', max(s))
 print('2.', 'python' in s)
