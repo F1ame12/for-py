@@ -41,4 +41,8 @@ for x in str1:
 #4.列表的基本操作
 print(['a',1]>['b',2]) #flase
 list1 = [2,3,4]
-print(list1[0:1])
+print(list1[0:2])
+
+#5.
+l=[1,2,3,4,5,6]
+print(l[0::2])
