@@ -52,6 +52,7 @@ print(l[0::2])
 '''
 
 #6.自定义函数
+'''
 def sayHello(name):
     print("你好",name)
 
@@ -79,3 +80,73 @@ def funb (a):
     print(id(a))
 
 funb(a)
+'''
+
+# 7.默认参数
+
+    # Python函数在定义的时候，默认参数L的值就被计算出来了，即[]，因为默认参数L也是一个变量，它指向对象[]，
+    # 每次调用该函数，如果改变了L的内容，则下次调用时，默认参数的内容就变了，不再是函数定义时的[]了。
+'''
+def add_end(L=[]):
+    L.append('END')
+    return L
+
+test = add_end()
+test = add_end()
+
+print(test)
+'''
+
+'''
+def add_end(L=None):
+    if L is None:
+        L = []
+    L.append('END')
+    return L
+
+test = add_end()
+test = add_end()
+
+test1 = add_end([1,2,3])
+print(test)
+print(test1)
+'''
+
+# 8.关键字参数
+'''
+def person(name, age, **kw):
+    print('name:', name, 'age:', age, 'other:', kw)
+    print(type(kw))
+
+person('niujingxiang',21,city='beijing')
+
+others={'city':'beijing','job':'softwarer'}
+person('niujingxiang',21,**others)
+'''
+# 9.可变参数
+# 给定一组数字a，b，c……，请计算a2 + b2 + c2 + ……
+
+# def calc(numbers):
+#     sum = 0
+#     for n in numbers:
+#         sum = sum + n * n
+#     return sum
+'''
+def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    return sum
+
+print('calc(1,2,3):',calc(1,2,3))
+
+nums = [1, 2, 3]
+print('calc(*nums):',calc(*nums))
+
+print('calc(nums[0],nums[1],nums[2]):',calc(nums[0],nums[1],nums[2]))
+'''
+
+#10.查看Python版本
+# import sys
+# print(sys.version_info.major)
+
