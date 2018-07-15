@@ -5,4 +5,36 @@
 ASCLL->字符      chr(int)
 字符->ASCALL     ord(chr)
 
-2.
+2.列表list
+序列类型包括:字符串,列表,元组
+列表的定义:一系列特定元素(任意元素的类型,甚至元素类型为列表型),元素之间有先后顺序关系,列表是一个容器.
+定义列表:
+空列表:frineds = []     frineds=list()
+非空列表:
+anmails = ['dog','pig']
+numbers = [1,2,3,4,5]
+mixlist = [1,2,3,'dog','4','5']
+towListMix = [1,2,3,['dog','pig'],4,5]
+
+3.列表的生成函数:
+list()
+list(iterable):iterable是一个可迭代的对象
+例如:
+list("hello")   #["h","e","l","l","o"]
+
+s="hello"
+list(s) #["h","e","l","l","o"]
+
+4.list之间的运算
++:拼接  +=   *   *=
+比较运算符:按元素逐个去比较>,<,>=,<=,==,!=
+字符串数字之间不能比较
+in和not in 运算符
+
+5.列表的基本操作
+索引:
+正向索引:0到len(list1)-1
+反向索引:-1到-len(list1)
+
+
+
