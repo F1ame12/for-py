@@ -13,7 +13,7 @@ logger.info('test log text')
 print('fine!')
 
 for i in range(20):
-    print(myutil.randomStr(6))
+    print(myutil.randomStr())
 
 
 '''
