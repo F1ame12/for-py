@@ -15,3 +15,26 @@ anmails = ['dog','pig']
 numbers = [1,2,3,4,5]
 mixlist = [1,2,3,'dog','4','5']
 towListMix = [1,2,3,['dog','pig'],4,5]
+
+3.列表的生成函数:
+list()
+list(iterable):iterable是一个可迭代的对象
+例如:
+list("hello")   #["h","e","l","l","o"]
+
+s="hello"
+list(s) #["h","e","l","l","o"]
+
+4.list之间的运算
++:拼接  +=   *   *=
+比较运算符:按元素逐个去比较>,<,>=,<=,==,!=
+字符串数字之间不能比较
+in和not in 运算符
+
+5.列表的基本操作
+索引:
+正向索引:0到len(list1)-1
+反向索引:-1到-len(list1)
+
+
+

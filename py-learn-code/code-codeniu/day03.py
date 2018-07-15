@@ -4,7 +4,8 @@ str = input("输入字符串")
 print("第一个字符为:%s"%str[0]+"中间的一个字符为:%s"%str[(len(str)-1)//2])
 '''
 
-#2.
+#2.列表的基本用法
+'''
 friends = ['niu','zhan','sun']
 for x in friends:
     print (x)
@@ -23,7 +24,7 @@ print("弹出第三个")
 friends.pop(2)
 for x in friends:
     print (x)
-
+'''
 #3.字符统计
 '''
 str = list(input("输入字符串:"))
@@ -36,3 +37,8 @@ for x in str1:
 for x in str1:
     print("字符%s出现的次数:"%x, str.count(x))
 '''
+
+#4.列表的基本操作
+print(['a',1]>['b',2]) #flase
+list1 = [2,3,4]
+print(list1[0:1])
