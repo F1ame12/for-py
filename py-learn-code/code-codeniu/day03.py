@@ -39,10 +39,43 @@ for x in str1:
 '''
 
 #4.列表的基本操作
+'''
 print(['a',1]>['b',2]) #flase
 list1 = [2,3,4]
 print(list1[0:2])
+'''
 
 #5.
+'''
 l=[1,2,3,4,5,6]
 print(l[0::2])
+'''
+
+#6.自定义函数
+def sayHello(name):
+    print("你好",name)
+
+sayHello("niu")
+
+def func(y):
+    x=y
+    print("func()")
+    return x,132,"大连"
+
+a,b,c = func([1,2])
+d = func([1,2])
+print(a)
+print(b)
+print(c)
+print(d)
+print("type(a)的值:",type(a))
+print("type(d)的值:",type(d))
+
+
+a = 1
+print(id(a))
+
+def funb (a):
+    print(id(a))
+
+funb(a)
