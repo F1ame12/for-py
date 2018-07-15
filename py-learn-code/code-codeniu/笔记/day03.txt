@@ -1,0 +1,8 @@
+1.类型转换函数
+整数字符串->整形  int(str)
+小数字符串->小数  float(str)
+任意对象->字符串  str(o)
+ASCLL->字符      chr(int)
+字符->ASCALL     ord(chr)
+
+2.
