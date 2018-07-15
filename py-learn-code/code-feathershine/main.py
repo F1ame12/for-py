@@ -5,15 +5,16 @@ import mylogger
 import myutil
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG)
 logger = mylogger.getLogger(loglevel='debug',name='test')
 
-print(logger)
-logger.info('test log text')
+logger.debug('test log text')
 print('fine!')
 
-for i in range(20):
-    print(myutil.randomStr())
+a = [1,2,3,4,5]
+b = [0,0,0,0,1]
+
+print(a.index(b[2]))
 
 
 '''

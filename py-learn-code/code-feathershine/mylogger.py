@@ -41,13 +41,16 @@ def getLogger(**args):
         if type(logformat) != type(''):
             raise TypeError('logformat参数应当为字符串')
     else:
-        logformat = '%(asctime)s %(name)s [%(levelname)s] %(message)s'
+        logformat = '[%(asctime)s] %(name)s [%(levelname)s] %(message)s'
     logger = logging.getLogger(name)
-    handle = logging.StreamHandler(stderr)
-    handle.setLevel(loglevel)
+    stdhandle = logging.StreamHandler(stderr)
+    filehandle = logging.FileHandler('log.log','a','utf-8')
+    logger.setLevel(loglevel)
     logformatter = logging.Formatter(logformat)
-    handle.setFormatter(logformatter)
-    logger.addHandler(handle)
+    stdhandle.setFormatter(logformatter)
+    filehandle.setFormatter(logformatter)
+    logger.addHandler(filehandle)
+    logger.addHandler(stdhandle)
     return logger
 
 #mylogger = logging.getLogger()
