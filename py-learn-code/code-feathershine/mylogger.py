@@ -28,6 +28,7 @@ def getLogger(**args):
             if loglevel == 'info':
                 loglevel = logging.INFO
             elif loglevel == 'debug':
+                print('debug is choosed')
                 loglevel = logging.DEBUG
             elif loglevel == 'warning':
                 loglevel = logging.WARNING
@@ -42,11 +43,11 @@ def getLogger(**args):
     else:
         logformat = '%(asctime)s %(name)s [%(levelname)s] %(message)s'
     logger = logging.getLogger(name)
-    console = logging.StreamHandler(stderr)
-    console.setLevel(loglevel)
+    handle = logging.StreamHandler(stderr)
+    handle.setLevel(loglevel)
     logformatter = logging.Formatter(logformat)
-    console.setFormatter(logformatter)
-    logger.addHandler(console)
+    handle.setFormatter(logformatter)
+    logger.addHandler(handle)
     return logger
 
 #mylogger = logging.getLogger()
