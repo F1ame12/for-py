@@ -1,3 +1,4 @@
 #Windows
 .vscode
-py-learn-code/code-feathershine/__pycache__
+
+*.pyc
