@@ -5,7 +5,7 @@
     ASCII->字符        chr(int)
     字符->ASCII        ord(chr)
 
-2. list和set
+2. list
     列表list 序列类型包括：字符串、列表、元祖
     列表的定义：
         列表由一系列特定的元素组成，元素之间可能没有任何关联，
@@ -60,9 +60,26 @@
              切片赋值是改变原列表，不会生成新列表
 
     常用序列函数：
-        len(x)
-        max(x)
-        min(x)
-        sum(x)
-        any(x)
-        all(x)
+        len(x)  返回序列X的长度
+        max(x)  返回序列X的最大值元素
+        min(x)  返回序列X的最小值元素
+        sum(x)  返回序列X中所有元素的和
+        any(x)  真值测试，其中有一个为真值
+        all(x)  真值测试，其中都为真值，则返回True
+        cmp(x1,x2)  比较两个列表的元素
+        list(seq)   将序列转换为列表
+
+    Python 中为False的对象
+    "",[],{},0,0.0,None
+
+    常用的列表方法：
+        list.append(o)  在列表末尾添加新元素
+        list.count(o)   统计某个元素在列表中出现的次数
+        list.extend(seq)    在列表末尾追加另一个序列或元素
+        list.index(o)   在列表中找出某个值，返回第一次匹配的索引为止
+        list.insert(index,0) 将对象o插入到索引值为index的位置
+        list.pop()  移除列表中的一个元素（默认最后一个元素）,并返回该元素
+        list.remove(object) 移除列表中某个元素（第一次匹配到的）
+        list.reverse()  反向列表中的元素
+        list.sort() 对列表进行排序
+           
