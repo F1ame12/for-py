@@ -1,0 +1,18 @@
+作用域：
+    L（Local）  局部作用域
+    E（Enclosing）  闭包作用域
+    G(Global)   全局作用域
+    B(Built-in) 内建作用域
+
+    查找原则：L->E->G->B
+
+    q = int(3.1)    #内建作用域(B)
+    nums = 0        #全局作用域(G)
+    def outer():
+        nums_2 = 1  #闭包函数外的函数中（局部外的局部）（E）
+        def inner():
+            nmms_3 = 1  #局部作用域（L）
+    
+    python函数作用域取决于函数代码在整体代码中的位置，而不是调用时机的位置
+
+GUI(Graphical )
