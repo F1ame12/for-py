@@ -20,6 +20,7 @@ def randomStr(length=8):
         char_list.append(strRange[num])
     return result_str.join(char_list)
 
+# TODO(feathershine): 输入两个字符串，分别去除两字符串相同的部分
 def delRepeatStr(str1, str2, **option):
     """输入两个字符串，分别去除两字符串相同的部分"""
     if type(str1) != type(''):
