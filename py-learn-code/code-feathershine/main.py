@@ -3,7 +3,8 @@
 
 import mylogger
 import myutil
-import logging
+import mygui
+
 
 #logging.basicConfig(level=logging.DEBUG)
 logger = mylogger.getLogger(loglevel='debug',name='test')
@@ -11,10 +12,12 @@ logger = mylogger.getLogger(loglevel='debug',name='test')
 logger.debug('test log text')
 print('fine!')
 
-a = [1,2,3,4,5]
-b = [0,0,0,0,1]
 
-print(a.index(b[2]))
+a = mylogger.Log()
+print(a.num)
+app = mygui.Application()
+
+app.mainloop()
 
 
 '''

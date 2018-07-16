@@ -3,11 +3,18 @@
 
 __author__ = 'feathershine'
 
-if (__name__ == '__main__'):
+import logging
+import sys
+
+def main():
     raise RuntimeError('不能直接运行模块！')
-else:
-    import logging
-    from sys import stdout,stderr
+    
+
+class Log(object):
+    num = 5
+    def __init__(self):
+        return 
+
 
 # TODO(feathershine): 尝试封装python自带logging模块的功能，提供更为简便的方法
 def getLogger(**args):
@@ -43,7 +50,7 @@ def getLogger(**args):
     else:
         logformat = '[%(asctime)s] %(name)s [%(levelname)s] %(message)s'
     logger = logging.getLogger(name)
-    stdhandle = logging.StreamHandler(stderr)
+    stdhandle = logging.StreamHandler(sys.stderr)
     filehandle = logging.FileHandler('log.log','a','utf-8')
     logger.setLevel(loglevel)
     logformatter = logging.Formatter(logformat)
@@ -53,6 +60,8 @@ def getLogger(**args):
     logger.addHandler(stdhandle)
     return logger
 
-#mylogger = logging.getLogger()
-#logging.basicConfig(level=logging.INFO)
-#logging.info('this is a info')
+
+
+if (__name__ == '__main__'):
+    main()
+
