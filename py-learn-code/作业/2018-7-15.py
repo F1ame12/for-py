@@ -69,6 +69,7 @@ def func11():
     return
 
 func11()
+
 import random
 print("12,随机数")
 def func12():
