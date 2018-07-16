@@ -125,11 +125,50 @@ S.pack()
 tk.mainloop()
 '''
 from tkinter import *
-from PIL import Image,ImageTK
+from PIL import Image,ImageTk
+import os
+import time
+
+print(os.path.abspath('.'))
 tk = Tk()
 tk.title("我的第二个窗体")
 tk.resizable(1,1)
 canvas = Canvas(tk,width=500,height=500)
-#绘制一张图片
 canvas.pack() 
+#绘制一张图片
+img = Image.open("for-py/py-learn-code/code-blackChocolate/learn/theday4img.gif")
+image = ImageTk.PhotoImage(img)
+myImg = canvas.create_image(100,100,image=image)
+myImg1 = canvas.create_image(100,100,image=image)
+myImg2 = canvas.create_image(100,100,image=image)
+#myText = canvas.create_text("111")
+'''
+for x in range(60):
+    canvas.move(myImg,5,5)
+    tk.update()
+    time.sleep(0.5)
+'''
+def moveImg(event):
+    #event == 2     键盘事件
+    #event == 4     鼠标事件
+    #<Button-1>     鼠标左机事件
+    #<Button-2>     鼠标中击事件
+    #<Button-3>     鼠标右击事件
+    #<Double-Button-1>      鼠标双击事件
+    #事件源如果是 w   
+    if event.keysym == "w":
+        #移动id为1的事物，横坐标加0，纵坐标减5
+        canvas.move(1,0,-5)
+    elif event.keysym == "s":
+        canvas.move(1,0,5)
+    elif event.keysym == "a":
+        canvas.move(1,-5,0)
+    elif event.keysym == "d":
+        canvas.move(1,5,0)
+#绑定按键与函数
+canvas.bind_all("<Key-w>",moveImg)
+canvas.bind_all("<Key-s>",moveImg)
+canvas.bind_all("<KeyPress-a>",moveImg)
+canvas.bind_all("<KeyPress-d>",moveImg)
+
 tk.mainloop()
