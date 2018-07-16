@@ -1,0 +1,14 @@
+1.作用域
+L(local) 局部作用域
+E(Enclosing) 闭包函数外的函数
+G(Global) 全局作用域
+B(Built-in) 内建作用域
+查找原则:L-E-G-B
+
+2.导包的两种方式
+两种方式的使用方法不一样
+import tkinter
+tk = tkinter.Tk()
+
+from tkinter import *
+tk=Tk()
