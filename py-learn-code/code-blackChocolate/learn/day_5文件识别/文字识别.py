@@ -16,5 +16,27 @@ class BaiDuAPI(object):
         secret_key = target.get('我的密码','secret_key')
         print(app_id,app_key,secret_key)
         self.client = AipOcr(app_id,app_key,secret_key)
-        
-BaiDuAPI("for-py/py-learn-code/code-blackChocolate/learn/day_5文件识别/password.ini")
+    #获得图片的方法
+    def getPicture(self,filePath):
+        #用[rb](二进制读)的方式打开文件，别名fp
+        with open(filePath,'rb') as fp:
+            return fp.read()
+    #图片转文字
+    def picture2Texts(self,filePath):
+        #获得图片
+        img = self.getPicture(filePath)
+        #识别图片
+        texts = self.client.basicGeneral(img)
+        #print(texts)
+        allTexts = ""
+        for word in texts['words_result']:
+            allTexts = allTexts + word.get("words",'')+"\n"
+        return allTexts
+if __name__ == '__name__':
+    BaiDuAPI("for-py/py-learn-code/code-blackChocolate/learn/day_5文件识别/password.ini").picture2Texts("for-py/py-learn-code/code-blackChocolate/learn/day_5文件识别/picture.png")
+
+
+
+
+
+
