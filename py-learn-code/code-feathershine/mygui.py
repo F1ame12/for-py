@@ -1,29 +1,23 @@
-#!/usr/bin/python3
-# -*- codng=utf-8 -*-
+#!usr/bin/python3
+# -*- coding=utf-8 -*-
 
-from tkinter import *
+import os
+import PIL
+import tkinter
+# from tkinter import *
+from PIL import Image
 
-def main():
-    app = Application()
-    app.mainloop()
-    return 
-
-class Application(Frame):
-
-    def __init__(self,master=None):
-        Frame.__init__(self, master)
+class App(tkinter.Frame):
+    def __init__(self, master=None):
+        tkinter.Frame.__init__(self, master)
         self.pack()
-        self.createWedgets()
-
-    def createWedgets(self):
-        self.master.geometry('200x400')
-        label = Label(self, text='hello world!')
+        self.createWidget()
+    def createWidget(self):
+        label = tkinter.Label(self, text='hello world')
         label.pack()
-        button = Button(self, text='Close', command=self.quit)
-        button.pack()
-        
 
-if __name__ == '__main__':
-    main()
-
-
+# pic = Image.open(os.path.join(os.path.abspath('.'), '/code-codeniu/练习代码/1.gif'))
+print(os.path.abspath('.'))
+print(os.path.join(os.path.abspath('.'), 'py-learn-code','code-codeniu','练习代码','1.gif'))
+app = App()
+# app.mainloop()
