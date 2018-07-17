@@ -39,12 +39,13 @@ def screenShot(path):
     #获取图片
 
 def screenStart():
-    print()
-    if keyboard.wait('esc')!=None:
-        path = input('输入路径')
-        for n in range(sys.maxsize):
-        print("开始第%d次截图"%n)
+    count=1
+    flag = 'yes'
+    path = input('输入路径:')
+    while  flag=='yes':
+        print('按任意键键退出程序，按ctal+alt+a开始截图，enter结束')
+        print("开始第%d次截图"%count)
+        count+=1
         screenShot(path)
-    else:
-        sys.exit()            
-
+        flag = input('是否继续截图（yes/no）：')             
+screenStart()
