@@ -14,7 +14,7 @@ class GetTexts(object):
     def getText(self):
         #打开剪切板
         w.OpenClipboard()
-        d = w.GetClipboardData(win32con.CF_UNICODETEXT)
+        d = w.GetClipboardData(win32con.CF_UNICODE=TEXT)
         w.CloseClipboard()
         return d
 
