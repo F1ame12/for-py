@@ -1,6 +1,6 @@
 import win32con
 from win32 import win32clipboard as w
-    #把文字赋值到剪切板
+    #把剪切板的文字取出来
 class GetTexts(object):
 
     def getText(self):
