@@ -21,6 +21,12 @@ import sys
 import mylogger
 import random
 
+from 文字识别 import BaiDuApi
+from 剪切板 import GetTexts
+
+import os
+
+
 log = mylogger.getLogger(loglevel = 'debug',name = 'keyboard')
 
 def screenShot(path):
@@ -33,19 +39,32 @@ def screenShot(path):
             img=ImageGrab.grabclipboard()
             #保存到粘贴板
             randomNum = str(random.randrange(100))
-            url = path+randomNum+'.png'
-            print(url)
-            img.save(url)
+            #url = path+randomNum+'.png'
+            #print(url)
+            img.save(path)
     #获取图片
+
+
+filePath=os.path.join(os.path.abspath("."),"py-learn-code","code-codeniu","练习代码","文字识别","password.ini")
+imgPath=os.path.join(os.path.abspath("."),"py-learn-code","code-codeniu","练习代码","文字识别","img.png")
+
 
 def screenStart():
     count=1
     flag = 'yes'
-    path = input('输入路径:')
+
     while  flag=='yes':
         print('按任意键键退出程序，按ctal+alt+a开始截图，enter结束')
         print("开始第%d次截图"%count)
         count+=1
-        screenShot(path)
-        flag = input('是否继续截图（yes/no）：')             
+        # print("imagePath:"+imgPath)
+        screenShot(imgPath)
+        
+        str = BaiDuApi(filePath).picture2Texts(imgPath)
+        #print('GetTexts().setText(str):'+GetTexts().setText(str))
+        print("str:"+str)
+
+        flag = input('是否继续截图（yes/no）：')     
+
+
 screenStart()
