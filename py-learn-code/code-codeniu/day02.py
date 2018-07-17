@@ -32,7 +32,7 @@ for x in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
     sum = sum + x
 print(sum)
 
-#函数
+#函数的写法
 def menu():
     print("有房吗？")
     print("有车吗？")
@@ -54,3 +54,55 @@ for x in range(5,0,-1):
 print("打印10以内的奇数：")
 for x in range(1,11,2):
     print(x)
+
+#continue
+for x in range(5,0,-1):
+    if(x==4):
+        print("第四个包子掉地上了")
+    continue
+    print("吃第%d个包子"%x)
+
+#打印图形
+a='*'
+a*=5
+print("第1个")
+for x in range(5):
+    print(a)
+
+print("第二个")
+a='*'
+for x in range(2,7):
+    print(a)
+    a='*'
+    a*=x
+
+print("第3个")
+a='*'
+for x in range(5,0,-1):
+    a*=x
+    print(a)
+    a='*'
+
+print("第4个")
+a='*'
+for x in range(5,0,-1):
+    a*=x
+    print(a)
+    a='*'
+
+for x in range(5):
+    for y in range(5):
+        print("x",end="")
+    print(end="\n")
+
+for x in range(5):
+    for y in range(x+1):
+        print("x",end="")
+    print(end="\n")
+
+for x in range(5,1,-1):
+    for i in range(x):
+        print(" ",end="")
+    for y in range():
+        print("0",end="")
+    print(end="\n")
