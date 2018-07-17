@@ -1,2 +1,5 @@
 #Windows
 .vscode
+
+*.pyc
+*.log

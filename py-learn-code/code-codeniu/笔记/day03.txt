@@ -1,0 +1,85 @@
+1.类型转换函数
+整数字符串->整形  int(str)
+小数字符串->小数  float(str)
+任意对象->字符串  str(o)
+ASCLL->字符      chr(int)
+字符->ASCALL     ord(chr)
+
+2.列表list
+序列类型包括:字符串,列表,元组
+列表的定义:一系列特定元素(任意元素的类型,甚至元素类型为列表型),元素之间有先后顺序关系,列表是一个容器.
+定义列表:
+空列表:frineds = []     frineds=list()
+非空列表:
+anmails = ['dog','pig']
+numbers = [1,2,3,4,5]
+mixlist = [1,2,3,'dog','4','5']
+towListMix = [1,2,3,['dog','pig'],4,5]
+
+3.列表的生成函数:
+list()
+list(iterable):iterable是一个可迭代的对象
+例如:
+list("hello")   #["h","e","l","l","o"]
+
+s="hello"
+list(s) #["h","e","l","l","o"]
+
+4.list之间的运算
++:拼接  +=   *   *=
+比较运算符:按元素逐个去比较>,<,>=,<=,==,!=
+字符串数字之间不能比较
+in和not in 运算符
+
+5.列表的基本操作
+索引:
+正向索引:0到len(list1)-1
+反向索引:-1到-len(list1)
+切片:
+list1[start:end:span]
+
+6.元组
+t=("niu","wang","sun")
+元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改
+t=(1)
+定义的不是tuple，是1这个数！这是因为括号()既可以表示tuple，又可以表示数学公式中的小括号，这就产生了歧义，因此，Python规定，这种情况下，
+按小括号进行计算，计算结果自然是1。所以，只有1个元素的tuple定义时必须加一个逗号,，来消除歧义：t=(1,)
+
+7.常用序列函数
+len(x)
+max(x)
+min(x)
+sum(x)  :返回元素之和
+any(x)  :真值测试,其中有一个为真,则返回True
+all(x)  :真值测试其中都为真值,才返回True
+cmp(x1,x2)  :比较两个列表
+list(seq)   :将序列转换为列表
+
+8.python中为false的对象:"",[],{},0,0.0,None
+
+9.常用的列表方法
+list.apppend(o) 在列表末尾添加新元素
+list.count(o)   统计某个元素在列表中出现的个数
+list.extend(o)  在列表末尾追加另一个序列或元素
+list.index(o)   在列表中找到某个值,并返回第一次出现的位置的索引
+list.insert(index,o)  讲对象o插入到索引值为index的位置
+list.pop()  移除列表中的一个元素(默认最后一个元素),并返回该元素
+list.remove(o)   移除列表中的某个元素(第一次匹配到的)
+list.reverse()   反向列表中的元素
+list.sort() 对列表进行排序
+
+10.Python自定义函数
+语法:
+def 函数名(参数1,参数2)
+    函数体
+    return
+
+11.函数的参数
+位置参数
+默认参数
+可变参数: 定义可变参数和定义一个list或tuple参数相比，仅仅在参数前面加了一个*号。在函数内部，参数numbers接收到的是一个tuple，
+因此，函数代码完全不变。但是，调用该函数时，可以传入任意个参数，包括0个参数.
+关键字参数: 
+
+
+
