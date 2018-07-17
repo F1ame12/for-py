@@ -1,0 +1,27 @@
+1.作用域
+L(local) 局部作用域
+E(Enclosing) 闭包函数外的函数
+G(Global) 全局作用域
+B(Built-in) 内建作用域
+查找原则:L-E-G-B
+
+2.导入模块的两种方式
+两种方式的使用方法不一样
+import tkinter
+tk = tkinter.Tk()
+
+from tkinter import *
+tk=Tk()
+
+3.GUI的学习:Tkinter
+Tk是一个图形库，支持多个操作系统，使用Tcl语言开发;
+Tk会调用操作系统提供的本地GUI接口，完成最终的GUI。
+
+4.在GUI中，每个Button、Label、输入框等，都是一个Widget。Frame则是可以容纳其他Widget的Widget，所有的Widget组合起来就是一棵树。
+pack()方法把Widget加入到父容器中，并实现布局。pack()是最简单的布局，grid()可以实现更复杂的布局。
+
+5.模块
+在一个模块中，我们可能会定义很多函数和变量，但有的函数和变量我们希望给别人使用，有的函数和变量我们希望仅仅在模块内部使用。
+在Python中，是通过_前缀来实现的。正常的函数和变量名是公开的（public），可以被直接引用，比如：abc，x123，PI等；
+类似__xxx__这样的变量是特殊变量，可以被直接引用，但是有特殊用途，比如上面的__author__，__name__就是特殊变量，hello模块
+定义的文档注释也可以用特殊变量__doc__访问，我们自己的变量一般不要用这种变量名;
