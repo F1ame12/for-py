@@ -9,10 +9,12 @@ import json
 
 def client():
     log = mylogger.getLogger('Client')
-    print('输入服务器地址及端口号：')
-    inputstr = str(input())
-    host = inputstr.split(' ')[0]
-    port = int(inputstr.split(' ')[1])
+    # print('输入服务器地址及端口号：')
+    # inputstr = str(input())
+    # host = inputstr.split(' ')[0]
+    # port = int(inputstr.split(' ')[1])
+    host = '127.0.0.1'
+    port = 9999
     log.info('IP: %s Port: %d' % (host, port))
     log.info('开始连接server')
     mysocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -46,22 +48,23 @@ def server():
     log = mylogger.getLogger('Server')
     mysocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     log.info('正在建立服务器')
-    mysocket.bind('127.0.0.1', 9999)
+    mysocket.bind(('127.0.0.1', 9999))
     mysocket.listen(10)
     log.info('服务器建立完成！等待连接')
     while True:
         sock, addr = mysocket.accept()
         t = threading.Thread(target=serverfunc, args=(sock, addr))
-        t.start
+        t.start()
 
 def serverfunc(sock, addr):
     log = mylogger.getLogger('ServerFunction')
     log.info('开始处理客户端请求')
     sock.send('老牛是傻逼！\n'.encode('utf-8'))
     while True:
+        if not sock:
+            break
         data = sock.recv(1024)
-        #log.info('服务器接受数据: %s' % )
-        time.sleep(1)
+        log.info('服务器接受数据: %s' % data.decode('utf-8'))
         if not data or data.decode('utf-8') == 'quit':
             break
         if data.decode('utf-8') == 'fuck':
