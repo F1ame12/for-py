@@ -22,7 +22,7 @@ import mylogger
 import random
 
 from 文字识别 import BaiDuApi
-from 剪切板 import GetTexts
+#from 剪切板 import GetTexts
 
 import os
 
@@ -54,7 +54,7 @@ def screenStart():
     flag = 'yes'
 
     while  flag=='yes':
-        print('按任意键键退出程序，按ctal+alt+a开始截图，enter结束')
+        print('按ctal+alt+a开始截图，enter结束')
         print("开始第%d次截图"%count)
         count+=1
         # print("imagePath:"+imgPath)
