@@ -6,6 +6,7 @@ import pywifi
 #引入wifi模块部分变量
 from pywifi import const
 import time
+import itertools
 '''
 环境安装路径
 import sys
