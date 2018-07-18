@@ -4,7 +4,7 @@ import socket
 import mylogger
 import threading
 import time
-
+import json
 
 
 def client():
@@ -80,3 +80,9 @@ if __name__ == '__main__':
         server()
     elif '2' == select:
         client()
+    else:
+        a = ['name','test','score','2134']
+        jsonencoder = json.JSONEncoder()
+        jsondecoder = json.JSONDecoder()
+        print(jsonencoder.encode({'a': a}))
+        
