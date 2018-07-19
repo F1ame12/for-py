@@ -1,7 +1,7 @@
 #GUI框架
 import simpleguitk as sim
 
-myPicture = sim.load_image('https://stock.tuchong.com/image/?imageId=255581151535825057')
+myPicture = sim.load_image("http://img.zcool.cn/community/0142135541fe180000019ae9b8cf86.jpg@1280w_1l_2o_100sh.png")
 #鼠标事件
 def mouseclick():
     print('点击了鼠标')
@@ -21,5 +21,6 @@ frame.set_canvas_background('Black')
 frame.add_button('我是按钮',mybutton,60)
 #注册鼠标事件
 frame.set_mouseclick_handler(mouseclick)
+frame.set_draw_handler(draw)
 #启动框架
 frame.start()
