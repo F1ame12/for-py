@@ -53,6 +53,8 @@ def draw(canvas):
         for j in range(COLS):
             if borad[i][j] is not None:
                 borad[i][j].drawSquare(canvas,[i,j])
+    #绘制步数
+    canvas.draw_text('步数'+str(steps),[400,670],22,'white')
 
 #定义一个图像块的类
 class Square:
@@ -68,19 +70,48 @@ class Square:
                             [IMAGE_SIZE,IMAGE_SIZE])
 
 #鼠标事件
-def mouseclick():
-    print('点击了鼠标')
+def mouseclick(pos):
+    r = int(pos[1]//IMAGE_SIZE)
+    c = int(pos[0]//IMAGE_SIZE)
+    global steps
+    if r < 3 and c <3:
+        if borad[r][c] == None:
+            return 
+        else:
+            #拿到图形块的模块
+            current_square = borad[r][c]
+            #判断各个方向
+            #判断上面
+            if r-1 >= 0 and borad[r-1][c] == None:
+                #互换2个图形块的位置
+                borad[r][c] = None
+                borad[r-1][c] = current_square
+                steps = steps + 1
+            #判断下面
+            if r+1 <= 2 and borad[r+1][c] == None:
+                borad[r][c] = None
+                borad[r+1][c] = current_square
+            #判断左边
+            if c-1 >= 0 and borad[r][c-1] == None:
+                borad[r][c] = None
+                borad[r][c-1] = current_square
+            #判断右边
+            if c+1 <= 2 and borad[r][c+1] == None:
+                borad[r][c] = None
+                borad[r][c+1] = current_square
 
 #点击按钮
 def mybutton():
-    print('点击了按钮')
+   global steps
+   steps = 0
+   init_board()
 
 #创建框架窗体
 frame = sim.create_frame('拼图游戏',600,700)
 #设置框架面板的背景颜色
 frame.set_canvas_background('Black')
 #添加一个按钮
-frame.add_button('我是按钮',mybutton,60)
+frame.add_button('重新开始',mybutton,60)
 #注册鼠标事件
 frame.set_mouseclick_handler(mouseclick)
 #设置画布绘图

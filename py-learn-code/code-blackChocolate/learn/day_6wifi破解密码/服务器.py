@@ -20,7 +20,6 @@ def tcplink(sock,addr):
             sock.send(('远方服务器不想理你，一脚踹开了你').encode('utf-8'))
             break
         sock.send(('老牛傻逼,%s'%data.decode('utf-8')).encode('utf-8'))
-        sock.send(('exit').encode('utf-8'))
     sock.close()
     print('Connection from %s:%s closed'%addr)
 
