@@ -49,12 +49,12 @@ def wifiConnection(ssid,pwd):
 #读取密码本
 def readPassword():
     path=os.path.join(os.path.abspath("."),"py-learn-code","code-codeniu","练习代码","wifi破解","pass.txt")
-    file = open(path,"r")
+    myfile = open(path,"r")
     flag = 0
     while True:
         try:
             #读取一行
-            passStr = file.readline().strip()
+            passStr = myfile.readline().strip()
             flag = wifiConnection(ssid,passStr)           
             if flag:
                 print('密码正确',passStr)                
@@ -62,7 +62,7 @@ def readPassword():
                 print('密码错误',passStr)  
         except:
             print('***')
-            continue
+            break
     myfile.close()
 
 readPassword()
