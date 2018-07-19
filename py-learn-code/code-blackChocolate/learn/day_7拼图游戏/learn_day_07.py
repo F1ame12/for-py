@@ -91,14 +91,17 @@ def mouseclick(pos):
             if r+1 <= 2 and borad[r+1][c] == None:
                 borad[r][c] = None
                 borad[r+1][c] = current_square
+                steps = steps + 1
             #判断左边
             if c-1 >= 0 and borad[r][c-1] == None:
                 borad[r][c] = None
                 borad[r][c-1] = current_square
+                steps = steps + 1
             #判断右边
             if c+1 <= 2 and borad[r][c+1] == None:
                 borad[r][c] = None
                 borad[r][c+1] = current_square
+                steps = steps + 1
 
 #点击按钮
 def mybutton():
