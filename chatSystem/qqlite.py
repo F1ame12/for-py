@@ -7,7 +7,7 @@ import guiDesign.noname as noname
 
 app = wx.App(False)
 
-mainwindow = noname.QQLite(None)
+mainwindow = noname.LoginWindow(None)
 mainwindow.Show(True)
 
 app.MainLoop()
