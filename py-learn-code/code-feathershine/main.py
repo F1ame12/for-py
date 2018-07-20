@@ -4,6 +4,7 @@
 import mylogger
 import myutil
 import mygui
+import os
 
 
 #logging.basicConfig(level=logging.DEBUG)
@@ -12,12 +13,7 @@ logger = mylogger.getLogger(loglevel='debug',name='test')
 logger.debug('test log text')
 print('fine!')
 
-
-a = mylogger.Log()
-print(a.num)
-app = mygui.Application()
-
-app.mainloop()
+print(os.path.abspath('main.py'))
 
 
 '''
