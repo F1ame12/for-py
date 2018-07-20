@@ -1,63 +1,54 @@
 #!/usr/bin/python3
 # -*- coding=utf-8 -*-
 
-import os
-import mylogger
 import socket
-import threading
 import sys
+import json
+import mylogger
+import baseinfo
 import time
 
-LOG = mylogger.getLogger('chatclient')
-ADDR = ('127.0.0.1', 6666)
+class ChatClient(object):
 
-def main():
-    start()
+    LOG = mylogger.getLogger('Client')
+    
+    HOST = '127.0.0.1'
+    PORT = 9999
+    ADDR = (HOST, PORT)
 
-def start():
-    hasconnect = False
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    print('正在连接服务器……')
-    hasconnect = checkConn(sock)
-    while True:
-        print('请输入指令：')
-        cmd = input()
-        if hasconnect:
-            sock.send(cmd.encode('utf-8'))
+    def __init__(self):
+        self.client_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+    def checkNet(self):
+        """检查网络是否通畅"""
+        timer = time.time()
+        self.LOG.info('timer = %s' % timer)
+        check_info = baseinfo.Info()
+        check_info.setType('check')
+        check_info_dict = baseinfo.info2Dict(check_info)
+        check_info_byte = json.dumps(check_info_dict).encode('utf-8')
+        self.LOG.debug(check_info_byte)
+        while True:
+            nowtime = time.time()
+            self.LOG.info('nowtime = %s' % nowtime)
+            if nowtime - timer >= 3.0:
+                return False
+            self.client_sock.sendto(check_info_byte, self.ADDR)
             time.sleep(0.5)
-            t = threading.Thread(target=getMsg, args=(sock,))
-            t.start()
-        if cmd == 'quit':
-            print('已与服务器中断连接')
-            break
-        if cmd == 'reconnect':
-            print('正在重新连接服务器')
-            hasconnect = checkConn(sock)
+            recv_data = self.client_sock.recv(1024)
+            if recv_data:
+                check_result_dict = json.loads(recv_data.decode('utf-8'))
+                check_result = baseinfo.dict2Info(check_result_dict)
+                if check_result.msg == 'ok':
+                    return True
 
-def checkConn(sock):
-    """ sock连接成功返回True否则返回False """
-    try:
-        sock.connect(ADDR)
-    except ConnectionRefusedError as e:
-        print('与服务器连接失败')
-    else:
-        print('服务器连接成功！')
-        return True
-    return False
-
-def getMsg(sock):
-    msg = []
-    LOG.debug('shit')
-    while True:
-        data = sock.recv(1024)
-        if not data:
-            break
-        msg.append(data)
-    msg = b''.join(msg)
-    LOG.info('服务器返回信息: %s' % msg.decode('utf-8'))
-    print(msg.decode('utf-8'))
+    def start(self):
+        self.LOG.info('客户端开启')
+        check_status = self.checkNet()
+        self.LOG.info('网络验证结果: %s' % check_status)
 
 
 
-if __name__ == "__main__":
-    start()
+client = ChatClient()
+
+client.start()
