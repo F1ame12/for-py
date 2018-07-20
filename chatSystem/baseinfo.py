@@ -7,6 +7,7 @@ class Info(object):
 
     def __init__(self):
         self.uid = 'default'
+        self.recv_uid = 'default'
         self.itype = 'none'
         self.msg = 'default'
 
@@ -15,6 +16,12 @@ class Info(object):
     
     def setUid(self, uid):
         self.uid = uid
+
+    def getRecvUid(self):
+        return self.recv_uid
+
+    def setRecvUid(self, uid):
+        self.recv_uid = uid
     
     def getType(self):
         return self.itype
@@ -31,6 +38,7 @@ class Info(object):
 def info2Dict(info):
     return {
         'uid': info.getUid(),
+        'recv_uid': info.getRecvUid(),
         'itype': info.getType(),
         'msg': info.getMsg()
     }
@@ -38,6 +46,7 @@ def info2Dict(info):
 def dict2Info(infodict):
     info = Info()
     info.setUid(infodict.get('uid'))
+    info.setRecvUid(infodict.get('recv_uid'))
     info.setType(infodict.get('itype'))
     info.setMsg(infodict.get('msg'))
     return info

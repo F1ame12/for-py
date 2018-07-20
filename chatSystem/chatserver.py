@@ -8,6 +8,11 @@ import mylogger
 import baseinfo
 import threading
 
+def main():
+    server = ChatServer()
+    # server.cmdStart()
+    server.start()
+
 class ChatServer(object):
     LOG = mylogger.getLogger('Server')
     HOST = '127.0.0.1'
@@ -16,6 +21,20 @@ class ChatServer(object):
     def __init__(self):
         self.server_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.usermanager = UserConnManager()
+
+    def checkWithCircle(self, connmanager):
+        """每隔10分钟检查用户池用户在线状况"""
+        user_list = connmanager.getList()
+        threadlock = threading.RLock()
+        if len(user_list) != 0:
+            self.LOG.info('开始检查在线状况')
+            threadlock.acquire()
+            for x in user_list:
+                if x.get('isalive') == False:
+                    connmanager.rmfromList(x[0])
+            threadlock.release()
+        else:
+            self.LOG.info('在线用户池为空 跳过此轮检查')
 
     def start(self):
         self.LOG.debug(self.server_sock)
@@ -42,21 +61,14 @@ class ChatServer(object):
                     self.server_sock.sendto(check_info_byte, recv_addr)
                     self.LOG.info('服务端->客户端: %s' % check_info_byte)
                     # self.usermanager.add2List(info.uid, recv_addr)
-    
-    def checkWithCircle(self, connmanager):
-        """每隔10分钟检查用户池用户在线状况"""
-        user_list = connmanager.getList()
-        threadlock = threading.RLock()
-        if len(user_list) != 0:
-            self.LOG.info('开始检查在线状况')
-            threadlock.acquire()
-            for x in user_list:
-                if x.get('isalive') == False:
-                    connmanager.rmfromList(x[0])
-            threadlock.release()
-        else:
-            self.LOG.info('在线用户池为空 跳过此轮检查')
-
+    #TODO(feathershine) 未完成服务器控制台指令输入
+    def cmdStart(self):
+        def cmd(self):
+            command = input()
+            if command == 'quit':
+                exit()
+        threading.Thread(target=cmd, args=(self)).start()
+        self.LOG.info('控制台线程开启')
 
 class UserConnManager():
     """在线用户池"""
@@ -89,6 +101,8 @@ class UserConnManager():
                 return False
 
 
-server = ChatServer()
-# server.start()
+
+
+if __name__ == '__main__':
+    main()
 

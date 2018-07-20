@@ -8,6 +8,10 @@ import mylogger
 import baseinfo
 import time
 
+def main():
+    client = ChatClient()
+    client.start()
+
 class ChatClient(object):
 
     LOG = mylogger.getLogger('Client')
@@ -41,6 +45,9 @@ class ChatClient(object):
                 check_result = baseinfo.dict2Info(check_result_dict)
                 if check_result.msg == 'ok':
                     return True
+    
+    def sendMsg(self,addr, msg):
+        pass
 
     def start(self):
         self.LOG.info('客户端开启')
@@ -49,6 +56,7 @@ class ChatClient(object):
 
 
 
-client = ChatClient()
+if __name__ == '__main__':
+    main()
 
-client.start()
+
