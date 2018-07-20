@@ -1,0 +1,42 @@
+总体功能：
+
+    1、用户A与用户B双向通信
+    2、用户登录、注册
+    3、服务器保存用户信息以及Log
+
+功能描述：
+
+    客户端Client 服务端Server
+
+    任意用户A，任意用户B
+
+    Client运行 显示登录注册窗口LoginWindow。
+    A 输入用户名密码。
+    Server验证信息正确性。
+    if 信息正确
+        Server保存用户id及socket到在线用户池并设置过期timer。
+        if 存在其他用户发送给A的信息
+            Server 发送信息。
+        else
+            Server 保持沉默。
+    else
+        服务器返回错误信息。
+    if 登陆成功
+        Client向Server拉取 A 用户信息及好友列表。
+        Client更新窗口文本显示主窗口MainWindow。
+        if 存在其他发送到A的信息
+            显示聊天窗口ChatWindow。
+            显示信息。
+        else
+            Client等待用户操作。
+    else
+        Client记录出错信息到Log 显示错误信息窗口ErrorWindow。
+
+    A 向 B 发送信息 显示聊天窗口ChatWindow。
+    Server 保存该信息 检查在线用户池是否存在 B。
+    if B 在线
+        Server转发该信息到 A。
+    else
+        Server保存该信息到文件。
+    
+    
