@@ -47,6 +47,7 @@ def init_board():
 #绘制画布的方法
 def draw(canvas):
     #绘制缩略图
+    #(中心点坐标，宽高，位置，大小)
     canvas.draw_image(myPicture,[300,300],[600,600],[50,650],[98,98])
     #绘制图像块（图像块没有内容就绘制，有内容就不绘制）
     for i in range(ROWS):
