@@ -93,7 +93,8 @@ class ChatClient(object):
             
             sendto = input()
             msg = input()
-            msg_thread = threading.Thread(target=self.waitMsg, args=(self,))
+            msg_thread = threading.Thread(target=self.waitMsg))
+            msg_thread.start()
             if msg == 'quit':
                 self.sendLogOutMsg()
                 return

@@ -32,16 +32,18 @@ class ChatClient(object):
 
     LOG = mylogger.getLogger('Client')
     
-    HOST = '10.17.60.222'
+    HOST = '127.0.0.1'
     PORT =  4700
     ADDR = (HOST, PORT)
     Text_Show = ''
     Send_Show = ''
     Send_Show2 = ''
+    status = False
 
     def __init__(self):
         self.client_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.uid = 'client1'
+        #self.status = True
 
     def checkNet(self):
         """检查网络是否通畅"""
@@ -70,10 +72,16 @@ class ChatClient(object):
     
     def waitMsg(self):
         while True:
+            #if self.status == False:
+            #   break 
             print("---测试客户端")
             self.LOG.info('等待接受信息')
             recv_data = self.client_sock.recv(1024)
             if recv_data:
+                if self.Send_Show2.get() == '':
+                    self.Text_Show.insert(tkinter.END,"人工智障机器人："+":"+time.strftime('%H:%M:%S',time.localtime(time.time()))+"\n",'green')
+                    self.Text_Show.insert(tkinter.END,str(recv_data.decode('utf-8'))+'\n')
+                    continue
                 info_dict = json.loads(recv_data.decode('utf-8'))
                 info = baseinfo.dict2Info(info_dict)
                 msg = info.getMsg()
@@ -111,6 +119,7 @@ class ChatClient(object):
         check_status = self.checkNet()
         self.LOG.info('网络验证结果: %s' % check_status)
         if check_status == True:
+            self
 
             #初始化GUI
             root=tkinter.Tk()
@@ -146,9 +155,9 @@ class ChatClient(object):
             msg_thread.start()
 
             root.mainloop()
+            self.sendLogOutMsg()
+            #self.status = False
            
-
-         
 
 if __name__ == '__main__':
     main()
