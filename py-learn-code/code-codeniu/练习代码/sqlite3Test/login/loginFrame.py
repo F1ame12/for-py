@@ -3,6 +3,9 @@ import os
 from tkinter import messagebox
 import socket
 import json
+from 客户端4 import *
+import mylogger
+import baseinfo
 
 root = Tk()
   
@@ -57,26 +60,21 @@ def btn_click_ok():
     elif password=='':
         messagebox.askquestion('error', '密码不能为空')
     else:
-        #将账号密码发送到服务器
+        client = ChatClient()
+        netState = client.checkNet()
+        if netState:
+            #服务器连接正常 向服务器发送用户信息
+            print('服务器连接正常 向服务器发送用户信息')
+            result = client.verifyLogin(data)
+            if result:
+                client.start()
+            else:
+                messagebox.askquestion('error', '账号或密码错误')
+
+
+        # client.start()
         
-        msg = connectToServe(data_byte)
-        print(msg)
-        
 
-
-
-#与服务器建立连接
-def connectToServe(data):
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # 建立连接:
-    s.connect(('127.0.0.1',9999))
-    # 接收欢迎消息:
-    return_msg = s.recv(1024).decode('utf-8')
-    
-    s.send(data)
-
-    # s.send(('退出').encode('utf-8'))
-    return return_msg
 
 #添加退出按钮
 quit_btn = Button(root,text = "quit",command=btn_click_quit).pack(side=LEFT)

@@ -24,6 +24,19 @@ def findById(id):
     conn.close()
 
     return values
+
+#通过id和密码查找
+def findByIdAndPass(id,password):
+    conn = getConnection(dbPath)
+    cursor = conn.cursor()
+    cursor.execute('select * from user1 where id=? and password=?', (id,password))
+    values = cursor.fetchall()
+    #print(values)
+    # print('select * from user1 where id=?,password=?', (id,password))
+    cursor.close()
+    conn.close()
+
+    return values
 #查找全部
 def findAll():
     conn = getConnection(dbPath)
@@ -78,6 +91,7 @@ def randomStr(length=6):
 def getFriendById(id):
     user = findById(id)
     friend = user[0][4]
+    # print(type(friend))
     friend = json.loads(friend)
     for i in range(len(friend)):
         print(friend[i])
@@ -100,7 +114,7 @@ def test_deleteById():
 def test_findAll():
     l = findAll()
     for i in l:
-        print(i[0])
+        print(i)
 
 def test_insert():
     id = randomStr()
@@ -132,4 +146,5 @@ def test_insert():
 test_findAll()
 # print(randomStr())
 # getFriendById('EM5uzH')
+# print(findByIdAndPass('EM5uzH','admin'))
 
