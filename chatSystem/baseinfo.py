@@ -50,3 +50,4 @@ def dict2Info(infodict):
     info.setType(infodict.get('itype'))
     info.setMsg(infodict.get('msg'))
     return info
+
