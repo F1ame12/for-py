@@ -11,3 +11,9 @@ for data in [b'Michael', b'Tracy', b'Sarah']:
     print(s.recv(1024).decode('utf-8'))
 s.send(b'exit')
 s.close()
+
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+s.connect(('127.0.0.1',4700))
+
+s.send
