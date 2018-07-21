@@ -171,6 +171,14 @@ class ChatServer(object):
                 info = baseinfo.dict2Info(infodict)
                 if self.usermanager.isOnline(info.getUid()) == True:
                     self.usermanager.update2List(info.getUid(), recv_addr)
+                
+                 #人工智障机器人
+                if info.getRecvUid() == '':
+                    answer =  self.AI_Talk(info.getMsg())
+                    self.Text_Show.insert('end',"来自人工智障机器人发给"+str(info.getUid())+"的消息为："+answer+'\n') 
+                    self.server_sock.sendto(answer.encode('utf-8'), recv_addr)
+                    continue
+
                 if info.getType() == 'msg':
                     self.LOG.info('客户端->服务端: %s' % recv_data)
                     for x in self.usermanager.getList():
@@ -238,6 +246,17 @@ class ChatServer(object):
                 exit()
         threading.Thread(target=cmd, args=(self)).start()
         self.LOG.info('控制台线程开启')
+    
+     #人工智障机器人
+    def AI_Talk(self,s): 
+        response = requests.post("http://www.tuling123.com/openapi/api", data={ 
+            "key":"9b4b5244340c471abfe2abf52e96b3d9",
+            "info":s,
+            "useid":"123456"
+        })
+        response = response.json() 
+        answer=response['text'] 
+        return answer
 
 class UserConnManager():
     """在线用户池"""
