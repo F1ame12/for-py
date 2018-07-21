@@ -90,7 +90,7 @@ def test_findById():
         print(i)
 
 def test_deleteById():
-    id = '1Qxlgz'
+    id = 'C43rsq'
     value = deleteById(id)
     if(value==0):
         print('未删除任何数据')
@@ -128,8 +128,8 @@ def test_insert():
 
 # test_insert()
 # test_findById()
-# test_deleteById()
-# test_findAll()
+test_deleteById()
+test_findAll()
 # print(randomStr())
 # getFriendById('EM5uzH')
 
