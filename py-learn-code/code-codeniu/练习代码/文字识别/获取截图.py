@@ -37,10 +37,6 @@ def screenShot(path):
             time.sleep(0.01)
             log.debug('完成图片的保存')
             img=ImageGrab.grabclipboard()
-            #保存到粘贴板
-            randomNum = str(random.randrange(100))
-            #url = path+randomNum+'.png'
-            #print(url)
             img.save(path)
     #获取图片
 
