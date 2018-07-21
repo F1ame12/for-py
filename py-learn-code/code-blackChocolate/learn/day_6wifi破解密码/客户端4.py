@@ -32,7 +32,7 @@ class ChatClient(object):
 
     LOG = mylogger.getLogger('Client')
     
-    HOST = '0.0.0.0'
+    HOST = '127.0.0.1'
     PORT =  4700
     ADDR = (HOST, PORT)
     Text_Show = ''
@@ -78,12 +78,17 @@ class ChatClient(object):
                 info = baseinfo.dict2Info(info_dict)
                 msg = info.getMsg()
                 senduid = info.getUid()
-                self.Text_Show.insert(tkinter.END,"来自客户端:"+senduid+"的消息"+msg+"+\n")
+                self.Text_Show.insert(tkinter.END,senduid+":"+time.strftime('%H:%M:%S',time.localtime(time.time()))+"\n",'green')
+                self.Text_Show.insert(tkinter.END,msg+'\n')
                 self.LOG.info('[%s] %s' % (senduid, msg))
+            else:
+                self.Text_Show.insert(tkinter.END,"用户:"+self.Send_Show2.get()+"未上线\n")
 
     def sendMsg(self):
         senduid = self.Send_Show2.get()
         msg = self.Send_Show.get()
+        self.Text_Show.insert(tkinter.END,"我："+time.strftime('%H:%M:%S',time.localtime(time.time()))+"\n",'green')
+        self.Text_Show.insert(tkinter.END,self.Send_Show.get()+"\n")
         info = baseinfo.Info()
         info.setMsg(msg)
         info.setType('msg')

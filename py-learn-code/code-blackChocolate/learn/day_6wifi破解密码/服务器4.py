@@ -180,6 +180,7 @@ class ChatServer(object):
                         self.server_sock.sendto(recv_data, self.usermanager.getAddr(info.getRecvUid()))
                     else:
                         self.LOG.info('用户 %s 不在线' % info.getRecvUid())
+                        self.server_sock.sendto(''.encode('utf-8'), recv_addr)
                         self.Text_Show.insert('end'," 用户 %s 不在线 " % info.getRecvUid()+'\n')
                     ####
                 elif info.getType() == 'check':
