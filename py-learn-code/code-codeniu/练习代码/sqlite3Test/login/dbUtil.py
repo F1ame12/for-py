@@ -78,6 +78,7 @@ def randomStr(length=6):
 def getFriendById(id):
     user = findById(id)
     friend = user[0][4]
+    # print(type(friend))
     friend = json.loads(friend)
     for i in range(len(friend)):
         print(friend[i])
@@ -129,7 +130,7 @@ def test_insert():
 # test_insert()
 # test_findById()
 # test_deleteById()
-test_findAll()
+# test_findAll()
 # print(randomStr())
-# getFriendById('EM5uzH')
+getFriendById('EM5uzH')
 
