@@ -3,11 +3,15 @@
 import os
 import wx
 
-import guiDesign.noname as noname
+# import guiDesign.noname as noname
 
-app = wx.App(False)
+# app = wx.App(False)
 
-mainwindow = noname.LoginWindow(None)
-mainwindow.Show(True)
+# mainwindow = noname.LoginWindow(None)
+# mainwindow.Show(True)
 
-app.MainLoop()
+# app.MainLoop()
+
+a = {'b': {'c': 1}}
+
+print(a['b']['c'])
