@@ -1,10 +1,13 @@
 import socket
 import threading
 import time
+import dbUtil
+import json
+
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 #监听端口
-s.bind(('0.0.0.0',4700))
+s.bind(('127.0.0.1',9999))
 #开始监听端口，参数表示等待连接的最大数量
 s.listen(1000)
 print("Waiting for connection...")
@@ -12,14 +15,25 @@ print("Waiting for connection...")
 #每个连接都必须创建一个新线程来处理
 def tcplink(sock,addr):
     print("Accept new connection from %s:%s..."%addr)
-    sock.send(b'Welcome!')
+    # sock.send(b'serve:now you can send me some msg')
+
+    data = sock.recv(1024).decode()#str
+
+    
+
     while True:
-        data = sock.recv(1024)
+        data = sock.recv(1024).decode()#str
+        print('接收到的数据',data)
+        data_dict = json.loads(data)
+        print(data_dict,type(data_dict))
         time.sleep(1)
-        if not data or data.decode('utf-8') == 'exit':
-            sock.send(('远方服务器不想理你，一脚踹开了你').encode('utf-8'))
+
+        #如果接受到的数据是'exit',就断开连接
+        if data == '退出':
+            sock.send(('主动断开连接请求已接受，已断开连接').encode('utf-8'))
             break
-        sock.send(('老牛傻逼,%s'%data.decode('utf-8')).encode('utf-8'))
+        
+        sock.send(('此消息来自服务器').encode('utf-8'))
     sock.close()
     print('Connection from %s:%s closed'%addr)
 
