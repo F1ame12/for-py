@@ -2,7 +2,6 @@
 # -*- coding=utf-8 -*-
 import os
 import wx
-
 import guiDesign.noname as noname
 
 app = wx.App(False)
