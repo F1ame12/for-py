@@ -101,7 +101,7 @@ class LoginFrame ( wx.Frame ):
 		self.Centre( wx.BOTH )
 		
 		# Connect Events
-		self.loginbtn.Bind( wx.EVT_LEFT_DCLICK, self.loginEvent )
+		self.loginbtn.Bind( wx.EVT_LEFT_DOWN, self.loginEvent )
 	
 	def __del__( self ):
 		pass
