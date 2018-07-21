@@ -32,11 +32,7 @@ class ChatClient(object):
 
     LOG = mylogger.getLogger('Client')
     
-<<<<<<< HEAD
     HOST = '10.17.60.222'
-=======
-    HOST = '127.0.0.1'
->>>>>>> df6b2b5a070f920fe6d522c67decfbf53d8f8db6
     PORT =  4700
     ADDR = (HOST, PORT)
     Text_Show = ''
