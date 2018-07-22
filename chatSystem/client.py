@@ -149,7 +149,7 @@ class ChatClient(object):
             #顶部显示部分
             frame1=Frame(root)
             frame1.pack()
-            IP_Show_Label=Label(frame1,text="本程序默认IP:127.0.0.1\n默认端口为6000\n无法更改!!!")
+            IP_Show_Label=Label(frame1,text="qqlite")
             IP_Show_Label.pack(side='left')
 
             #中部聊天框显示部分

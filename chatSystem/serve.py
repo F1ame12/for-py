@@ -116,7 +116,7 @@ def main():
 
 class ChatServer(object):
     LOG = mylogger.getLogger('Server')
-    HOST = '127.0.0.1'
+    HOST = '0.0.0.0'
     PORT = 4700
     Text_Show = ''
     def __init__(self):
@@ -181,8 +181,11 @@ class ChatServer(object):
 
                 if info.getType() == 'msg':
                     self.LOG.info('客户端->服务端: %s' % recv_data)
+                    #self.Text_Show.insert('end','当前用户列表：')
                     for x in self.usermanager.getList():
+                        #self.Text_Show.insert('end',str(x[0]))
                         self.LOG.debug('当前用户列表: %s', x)
+                    self.Text_Show.insert('end','\n')
                     if self.usermanager.isOnline(info.getRecvUid()) == True:
                         self.Text_Show.insert('end',"来自客户端@"+str(info.getUid())+"发给"+str(info.getRecvUid())+"的消息为："+str(info.getMsg())+'\n') 
                         #print("-----这里是测试的" + str(self.usermanager.getAddr(info.getRecvUid())))
@@ -190,11 +193,15 @@ class ChatServer(object):
                     else:
                         self.LOG.info('用户 %s 不在线' % info.getRecvUid())
                         self.Text_Show.insert('end'," 用户 %s 不在线 " % info.getRecvUid()+'\n')
+                        self.server_sock.sendto(''.encode('utf-8'), recv_addr)
                     ####
                 elif info.getType() == 'check':
                     self.checkWebResponce(recv_addr)
                     self.usermanager.add2List(info.getUid(), recv_addr)
                     self.Text_Show.insert('end',"客户端@"+str(info.getUid())+"已连接!\n") 
+                    self.Text_Show.insert('end','当前用户列表：')
+                    for x in self.usermanager.getList():
+                        self.Text_Show.insert('end',str(x[0]))
                 elif info.getType() == 'exit':
                     self.usermanager.rmfromList(info.getUid())
                     self.LOG.info('客户端 %s 已离线' % info.getUid())
@@ -225,7 +232,7 @@ class ChatServer(object):
         root.title("聊天小程序服务器端 ") 
         frame1=Frame(root) 
         frame1.pack() 
-        IP_Show_Label=Label(frame1,text="默认IP:127.0.0.1\n默认端口为6000\n无法更改!!!") 
+        IP_Show_Label=Label(frame1,text="qqlite") 
         IP_Show_Label.pack(side='left') 
         frame2=Frame(root) 
         frame2.pack() 
