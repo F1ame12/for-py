@@ -176,8 +176,11 @@ class ChatServer(object):
                  #人工智障机器人
                 if info.getRecvUid() == '':
                     answer =  self.AI_Talk(info.getMsg())
+                    info.setMsg(answer)
+                    infdict = baseinfo.info2Dict(info)
+                    infbyte = json.dumps(infdict).encode('utf-8')             
+                    self.server_sock.sendto(infbyte, recv_addr)
                     self.Text_Show.insert('end',"来自人工智障机器人发给"+str(info.getUid())+"的消息为："+answer+'\n') 
-                    self.server_sock.sendto(answer.encode('utf-8'), recv_addr)
                     continue
 
                 if info.getType() == 'msg':

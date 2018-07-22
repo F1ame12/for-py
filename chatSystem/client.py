@@ -78,15 +78,17 @@ class ChatClient(object):
             print("---测试客户端")
             self.LOG.info('等待接受信息')
             recv_data = self.client_sock.recv(1024)
+            print("---",recv_data)
             if recv_data:
-                if self.Send_Show2.get() == '':
-                    self.Text_Show.insert(tkinter.END,"人工智障机器人："+":"+time.strftime('%H:%M:%S',time.localtime(time.time()))+"\n",'green')
-                    self.Text_Show.insert(tkinter.END,str(recv_data.decode('utf-8'))+'\n')
-                    continue
                 info_dict = json.loads(recv_data.decode('utf-8'))
                 info = baseinfo.dict2Info(info_dict)
                 msg = info.getMsg()
                 senduid = info.getUid()
+                recvuid = info.getRecvUid()
+                if recvuid == '':
+                    self.Text_Show.insert(tkinter.END,"人工智障机器人："+":"+time.strftime('%H:%M:%S',time.localtime(time.time()))+"\n",'green')
+                    self.Text_Show.insert(tkinter.END,msg+'\n')
+                    continue
                 self.Text_Show.insert(tkinter.END,senduid+":"+time.strftime('%H:%M:%S',time.localtime(time.time()))+"\n",'green')
                 self.Text_Show.insert(tkinter.END,msg+'\n')
                 self.LOG.info('[%s] %s' % (senduid, msg))
