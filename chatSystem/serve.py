@@ -202,7 +202,7 @@ class ChatServer(object):
                     self.Text_Show.insert('end','当前用户列表：')
                     for x in self.usermanager.getList():
                         self.Text_Show.insert('end',str(x[0])+' ')
-                     self.Text_Show.insert('end','\n')
+                    self.Text_Show.insert('end','\n')
                 elif info.getType() == 'exit':
                     self.usermanager.rmfromList(info.getUid())
                     self.LOG.info('客户端 %s 已离线' % info.getUid())
