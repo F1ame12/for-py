@@ -8,6 +8,10 @@ import os
 import threading
 import json
 
+'''
+'EM5uzH', 12345678, 'admin', 'admin', 
+'iwX9BJ', 12345678, 'admin', 'admin',
+'''
 
 sys.path.append(os.path.join(os.path.abspath('.'), 'chatSystem'))
 
@@ -28,7 +32,7 @@ class LoginWindow(qqliteframe.LoginFrame):
         data = {'username':username,'password':password}
         data_str = json.dumps(data)
         data_byte = data_str.encode('utf-8')
-
+        self.c.setClientUid(username)
         self.LOG.info(username)
         self.LOG.info(password)
         #验证用户和密码

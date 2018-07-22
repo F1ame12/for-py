@@ -116,7 +116,11 @@ def main():
 
 class ChatServer(object):
     LOG = mylogger.getLogger('Server')
+<<<<<<< HEAD
     HOST = '0.0.0.0'
+=======
+    HOST = '192.168.137.137'
+>>>>>>> 33ab7c5f388a06e5a8b01a727bc25801cd5926d7
     PORT = 4700
     Text_Show = ''
     def __init__(self):
@@ -211,7 +215,7 @@ class ChatServer(object):
                     # print("codeniu",data,type(data))
                     username = data['username']
                     password = data['password']
-                    result = dbUtil.findByIdAndPass(username,password)
+                    result = dbUtil.findByUsernameAndPass(username,password)
                     # print(result)
                     result_1 = baseinfo.Info()
                     if len(result)==0:
