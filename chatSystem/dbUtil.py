@@ -161,5 +161,5 @@ def test_insert():
 # print(randomStr())
 # getFriendById('EM5uzH')
 # print(findByIdAndPass('EM5uzH','admin'))
-print(findByUsernameAndPass('niujingxiang','admin'))
+# print(findByUsernameAndPass('niujingxiang','admin'))
 
