@@ -41,7 +41,7 @@ class ChatClient(object):
 
     def __init__(self):
         self.client_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.uid = 'client1'
+        self.uid = 'client2'
 
     def setClientUid(self, uid):
         self.uid = uid

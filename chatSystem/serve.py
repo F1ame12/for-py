@@ -204,7 +204,7 @@ class ChatServer(object):
                     # print("codeniu",data,type(data))
                     username = data['username']
                     password = data['password']
-                    result = dbUtil.findByIdAndPass(username,password)
+                    result = dbUtil.findByUsernameAndPass(username,password)
                     # print(result)
                     result_1 = baseinfo.Info()
                     if len(result)==0:
