@@ -8,6 +8,10 @@ import os
 import threading
 import json
 
+'''
+'EM5uzH', 12345678, 'admin', 'admin', 
+'iwX9BJ', 12345678, 'admin', 'admin',
+'''
 
 sys.path.append(os.path.join(os.path.abspath('.'), 'chatSystem'))
 
