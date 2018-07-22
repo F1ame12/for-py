@@ -132,8 +132,8 @@ def test_findAll():
 
 def test_insert():
     id = randomStr()
-    username = 'zhanhailun'
-    netname = 'feathershine'
+    username = 'sunzhui'
+    netname = 'balck'
     password = 'admin'
 
     data = [
