@@ -59,22 +59,25 @@ class ChatClient(object):
         check_info_byte = json.dumps(check_info_dict).encode('utf-8')
         self.LOG.debug(check_info_byte)
         while True:
-            nowtime = time.time()
-            self.LOG.info('nowtime = %s' % nowtime)
-            if nowtime - timer >= 3.0:
-                return False
-            self.client_sock.sendto(check_info_byte, self.ADDR)
-            time.sleep(0.5)
-            recv_data = self.client_sock.recv(1024)
-            if recv_data:
-                check_result_dict = json.loads(recv_data.decode('utf-8'))
-                check_result = baseinfo.dict2Info(check_result_dict)
-                print(recv_data)
-                if check_result.msg == 'ok':
-                    return True
+            try:
+                nowtime = time.time()
+                self.LOG.info('nowtime = %s' % nowtime)
+                if nowtime - timer >= 3.0:
+                    return False
+                self.client_sock.sendto(check_info_byte, self.ADDR)
+                time.sleep(0.5)
+                recv_data = self.client_sock.recv(1024)
+                if recv_data:
+                    check_result_dict = json.loads(recv_data.decode('utf-8'))
+                    check_result = baseinfo.dict2Info(check_result_dict)
+                    print(recv_data)
+                    if check_result.msg == 'ok':
+                        return True
+            except:print("网络连接错误")
     
     def waitMsg(self):
-        while True:
+        stop_status = False
+        while not stop_status:
             print("---测试客户端")
             self.LOG.info('等待接受信息')
             recv_data = self.client_sock.recv(1024)
@@ -184,8 +187,6 @@ class ChatClient(object):
             root.mainloop()
             self.sendLogOutMsg()
            
-
-         
 
 if __name__ == '__main__':
     main()
