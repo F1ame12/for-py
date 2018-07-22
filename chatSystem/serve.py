@@ -116,10 +116,7 @@ def main():
 
 class ChatServer(object):
     LOG = mylogger.getLogger('Server')
-<<<<<<< HEAD
-=======
     #HOST = '192.168.137.137'
->>>>>>> 80ea6119c91f07a501182d0af6897d241ab17635
     HOST = '0.0.0.0'
     PORT = 4700
     Text_Show = ''
