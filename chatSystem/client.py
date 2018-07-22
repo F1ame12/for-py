@@ -43,6 +43,9 @@ class ChatClient(object):
         self.client_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.uid = 'client1'
 
+    def setClientUid(self, uid):
+        self.uid = uid
+
     def checkNet(self):
         """检查网络是否通畅"""
         timer = time.time()
