@@ -116,7 +116,10 @@ def main():
 
 class ChatServer(object):
     LOG = mylogger.getLogger('Server')
+<<<<<<< HEAD
+=======
     #HOST = '192.168.137.137'
+>>>>>>> 80ea6119c91f07a501182d0af6897d241ab17635
     HOST = '0.0.0.0'
     PORT = 4700
     Text_Show = ''
@@ -202,7 +205,7 @@ class ChatServer(object):
                     self.Text_Show.insert('end','当前用户列表：')
                     for x in self.usermanager.getList():
                         self.Text_Show.insert('end',str(x[0])+' ')
-                     self.Text_Show.insert('end','\n')
+                    self.Text_Show.insert('end','\n')
                 elif info.getType() == 'exit':
                     self.usermanager.rmfromList(info.getUid())
                     self.LOG.info('客户端 %s 已离线' % info.getUid())
