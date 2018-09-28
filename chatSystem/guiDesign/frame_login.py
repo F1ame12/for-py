@@ -12,8 +12,8 @@ import json
 'EM5uzH', 12345678, 'admin', 'admin', 
 'iwX9BJ', 12345678, 'admin', 'admin',
 '''
-
 sys.path.append(os.path.join(os.path.abspath('.'), 'chatSystem'))
+print(sys.path)
 
 import client
 import mylogger
@@ -47,7 +47,7 @@ class LoginWindow(qqliteframe.LoginFrame):
                 print('服务器连接正常 向服务器发送用户信息')
                 result = self.c.verifyLogin(data)
                 if result:
-                    threading.Thread(target=self.c.start).start()
+                    threading.Thread(target=self.c.start,args=(self,)).start()
                     self.Hide()
                 else:
                     wx.MessageBox('账号或密码错误', caption="error", style=wx.CANCEL)

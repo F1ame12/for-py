@@ -132,7 +132,7 @@ def test_findAll():
 
 def test_insert():
     id = randomStr()
-    username = 'sunzhui'
+    username = 'wangxiangdong'
     netname = 'balck'
     password = 'admin'
 
@@ -157,7 +157,7 @@ def test_insert():
 # test_insert()
 # test_findById()
 # test_deleteById()
-# test_findAll()
+test_findAll()
 # print(randomStr())
 # getFriendById('EM5uzH')
 # print(findByIdAndPass('EM5uzH','admin'))

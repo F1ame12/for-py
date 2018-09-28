@@ -33,6 +33,7 @@ class ChatClient(object):
     LOG = mylogger.getLogger('Client')
     
     HOST = '140.143.57.234'
+    # HOST = '0.0.0.0'
     PORT =  4700
     ADDR = (HOST, PORT)
     Text_Show = ''
@@ -145,7 +146,7 @@ class ChatClient(object):
         info_byte = json.dumps(info_dict).encode('utf-8')
         self.client_sock.sendto(info_byte, self.ADDR)
 
-    def start(self):
+    def start(self,gui):
         self.LOG.info('客户端开启')
         check_status = self.checkNet()
         self.LOG.info('网络验证结果: %s' % check_status)
@@ -186,6 +187,7 @@ class ChatClient(object):
 
             root.mainloop()
             self.sendLogOutMsg()
+            gui.Close()
            
 
 if __name__ == '__main__':
