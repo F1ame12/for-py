@@ -1,11 +1,14 @@
+
+'''
+
 import socket
 import time
 import tkinter
 from tkinter.scrolledtext import ScrolledText
 import threading
-import requests
+'import requests'
 import tkinter
-from tkinter import *
+'from tkinter import *'
 import sys
 import json
 import mylogger
@@ -15,7 +18,8 @@ import dbUtil
 
 global cs,Text_Show,Send_Show
 global list,dict1
-'''
+
+
 #调用人工智能对话的函数，返回人工智能回答
 def AI_Talk(s): 
     response = requests.post("http://www.tuling123.com/openapi/api", data={ 
@@ -95,6 +99,7 @@ if __name__ == "__main__":
     Text_Show.pack(side="bottom",fill = 'both', expand = True) 
     Sever_Init() 
     root.mainloop()
+'''
 '''
 def main():
     server = ChatServer()
@@ -324,3 +329,4 @@ class UserConnManager():
 
 if __name__ == '__main__':
     main()
+'''
