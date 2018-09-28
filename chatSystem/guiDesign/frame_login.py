@@ -16,6 +16,7 @@ sys.path.append(os.path.join(os.path.abspath('.'), 'chatSystem'))
 print(sys.path)
 
 import client
+import frame_singup
 import mylogger
 
 class LoginWindow(qqliteframe.LoginFrame):
@@ -25,7 +26,8 @@ class LoginWindow(qqliteframe.LoginFrame):
     def __init__(self, parent):
         qqliteframe.LoginFrame.__init__(self, parent)
         self.c = client.ChatClient()
-    
+
+    #登陆按钮的点击事件
     def loginEvent(self, event):
         username = self.user_id_input.GetValue()
         password = self.user_pwd_input.GetValue()
@@ -56,6 +58,12 @@ class LoginWindow(qqliteframe.LoginFrame):
             # threading.Thread(target=self.client.start).start()
             # self.server.start()
             # print('test')
+
+    #注册按钮的点击事件
+    def singupEvent(self,event):
+        self.c = frame_singup.SingupWindow()
+        #threading.Thread(target=self.c.start,args=(self,)).start()
+
 
 app = wx.App(False)
 

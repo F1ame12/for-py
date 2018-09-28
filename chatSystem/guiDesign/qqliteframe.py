@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 
 ###########################################################################
-## Python code generated with wxFormBuilder (version Jul 11 2018)
+## Python code generated with wxFormBuilder (version Aug  8 2018)
 ## http://www.wxformbuilder.org/
 ##
 ## PLEASE DO *NOT* EDIT THIS FILE!
@@ -102,6 +102,7 @@ class LoginFrame ( wx.Frame ):
 		
 		# Connect Events
 		self.loginbtn.Bind( wx.EVT_LEFT_DOWN, self.loginEvent )
+		self.regbtn.Bind( wx.EVT_LEFT_DOWN, self.singupEvent )
 	
 	def __del__( self ):
 		pass
@@ -109,6 +110,9 @@ class LoginFrame ( wx.Frame ):
 	
 	# Virtual event handlers, overide them in your derived class
 	def loginEvent( self, event ):
+		event.Skip()
+	
+	def singupEvent( self, event ):
 		event.Skip()
 	
 

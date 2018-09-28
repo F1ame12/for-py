@@ -32,8 +32,14 @@ class ChatClient(object):
 
     LOG = mylogger.getLogger('Client')
     
-    HOST = '140.143.57.234'
-    # HOST = '0.0.0.0'
+    '''
+    host为运行服务端的电脑的ip地址
+    '''
+    #HOST = '140.143.57.234'
+    #HOST = '0.0.0.0'
+    #HOST = '10.18.218.182'
+    HOST = '192.168.42.234'
+
     PORT =  4700
     ADDR = (HOST, PORT)
     Text_Show = ''
