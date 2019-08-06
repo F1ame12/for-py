@@ -6,6 +6,11 @@ import threading
 import requests
 import tkinter
 from tkinter import *
+import sys
+import json
+import mylogger
+import baseinfo
+
 
 global cs,Text_Show,Send_Show
 global list,dict1
@@ -88,3 +93,4 @@ if __name__ == "__main__":
     Text_Show.pack(side="bottom",fill = 'both', expand = True) 
     Sever_Init() 
     root.mainloop()
+

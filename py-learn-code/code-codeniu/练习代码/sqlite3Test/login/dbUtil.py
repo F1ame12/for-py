@@ -37,20 +37,6 @@ def findByIdAndPass(id,password):
     conn.close()
 
     return values
-
-#通过username和密码查找
-def findByUsernameAndPass(username,password):
-    conn = getConnection(dbPath)
-    cursor = conn.cursor()
-    cursor.execute('select * from user1 where username=? and password=?', (username,password))
-    values = cursor.fetchall()
-    #print(values)
-    # print('select * from user1 where id=?,password=?', (id,password))
-    cursor.close()
-    conn.close()
-
-    return values
-
 #查找全部
 def findAll():
     conn = getConnection(dbPath)
@@ -132,8 +118,8 @@ def test_findAll():
 
 def test_insert():
     id = randomStr()
-    username = 'wangxiangdong'
-    netname = 'balck'
+    username = '12345678'
+    netname = 'admin'
     password = 'admin'
 
     data = [
@@ -161,5 +147,4 @@ test_findAll()
 # print(randomStr())
 # getFriendById('EM5uzH')
 # print(findByIdAndPass('EM5uzH','admin'))
-# print(findByUsernameAndPass('niujingxiang','admin'))
 

@@ -4,7 +4,7 @@ import time
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 #监听端口
-s.bind(('0.0.0.0',9999))
+s.bind(('0.0.0.0',4700))
 #开始监听端口，参数表示等待连接的最大数量
 s.listen(1000)
 print("Waiting for connection...")

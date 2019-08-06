@@ -23,7 +23,7 @@ class BaiDuApi(object):
     def picture2Texts(self,filePath):
         img = self.getPicture(filePath)
         texts=self.client.basicGeneral(img)
-        #print(texts)
+        print(texts)
         allText = ''
         for word in texts['words_result']:
             allText +=word.get("words",'')+"\n"

@@ -8,6 +8,12 @@ import threading
 import mylogger
 import baseinfo
 import time
+import tkinter
+from tkinter.scrolledtext import ScrolledText
+import requests
+from tkinter import *
+
+
 
 def main():
     cmd = input()
@@ -18,6 +24,8 @@ def main():
         client.uid = 'client2'
     elif cmd == '3':
         client.uid = 'client3'
+    elif cmd == '0':
+        return
     client.start()
 
 class ChatClient(object):
@@ -25,12 +33,17 @@ class ChatClient(object):
     LOG = mylogger.getLogger('Client')
     
     HOST = '127.0.0.1'
-    PORT = 9999
+    PORT =  4700
     ADDR = (HOST, PORT)
+    Text_Show = ''
+    Send_Show = ''
+    Send_Show2 = ''
+    status = False
 
     def __init__(self):
         self.client_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.uid = 'client1'
+        #self.status = True
 
     def checkNet(self):
         """检查网络是否通畅"""
@@ -53,21 +66,37 @@ class ChatClient(object):
             if recv_data:
                 check_result_dict = json.loads(recv_data.decode('utf-8'))
                 check_result = baseinfo.dict2Info(check_result_dict)
+                print(recv_data)
                 if check_result.msg == 'ok':
                     return True
     
     def waitMsg(self):
         while True:
+            #if self.status == False:
+            #   break 
+            print("---测试客户端")
             self.LOG.info('等待接受信息')
             recv_data = self.client_sock.recv(1024)
             if recv_data:
+                if self.Send_Show2.get() == '':
+                    self.Text_Show.insert(tkinter.END,"人工智障机器人："+":"+time.strftime('%H:%M:%S',time.localtime(time.time()))+"\n",'green')
+                    self.Text_Show.insert(tkinter.END,str(recv_data.decode('utf-8'))+'\n')
+                    continue
                 info_dict = json.loads(recv_data.decode('utf-8'))
                 info = baseinfo.dict2Info(info_dict)
                 msg = info.getMsg()
                 senduid = info.getUid()
+                self.Text_Show.insert(tkinter.END,senduid+":"+time.strftime('%H:%M:%S',time.localtime(time.time()))+"\n",'green')
+                self.Text_Show.insert(tkinter.END,msg+'\n')
                 self.LOG.info('[%s] %s' % (senduid, msg))
+            else:
+                self.Text_Show.insert(tkinter.END,"用户:"+self.Send_Show2.get()+"未上线\n")
 
-    def sendMsg(self, senduid, msg):
+    def sendMsg(self):
+        senduid = self.Send_Show2.get()
+        msg = self.Send_Show.get()
+        self.Text_Show.insert(tkinter.END,"我："+time.strftime('%H:%M:%S',time.localtime(time.time()))+"\n",'green')
+        self.Text_Show.insert(tkinter.END,self.Send_Show.get()+"\n")
         info = baseinfo.Info()
         info.setMsg(msg)
         info.setType('msg')
@@ -90,20 +119,46 @@ class ChatClient(object):
         check_status = self.checkNet()
         self.LOG.info('网络验证结果: %s' % check_status)
         if check_status == True:
-            
-            sendto = input()
-            msg = input()
-            msg_thread = threading.Thread(target=self.waitMsg, args=(self,))
-            if msg == 'quit':
-                self.sendLogOutMsg()
-                return
-            else:
-                self.sendMsg(sendto, msg)
-            time.sleep(5)
+            self
 
+            #初始化GUI
+            root=tkinter.Tk()
+            root.title("聊天小程序客户端 ")
+            #顶部显示部分
+            frame1=Frame(root)
+            frame1.pack()
+            IP_Show_Label=Label(frame1,text="本程序默认IP:127.0.0.1\n默认端口为6000\n无法更改!!!")
+            IP_Show_Label.pack(side='left')
 
+            #中部聊天框显示部分
+            frame2=Frame(root)
+            frame2.pack()
+            self.Text_Show=ScrolledText(frame2,width=70,height=15)
+            self.Text_Show.bind("<KeyPress>",lambda e:"break")
+            self.Text_Show.pack(side="bottom",fill = 'both', expand = True)
+            #底部消息发送部分
+            frame3=Frame(root)
+            frame3.pack()
+            e3=StringVar()
+            self.Send_Show=Entry(frame3, textvariable=e3,width=40)
+            e4= StringVar()
+            self.Send_Show2 = Entry(frame3, textvariable=e4,width=20)
+            buttontext2 = tkinter.StringVar()
+            buttontext2.set('发送')
+            button_Send = tkinter.Button(frame3,width=10, textvariable=buttontext2,command=self.sendMsg)
+            self.Send_Show.pack(side="left")
+            self.Send_Show2.pack(side="left")
+            button_Send.pack(side="left")
+            frame3.pack()
+
+            msg_thread = threading.Thread(target=self.waitMsg)
+            msg_thread.start()
+
+            root.mainloop()
+            self.sendLogOutMsg()
+            #self.status = False
+           
 
 if __name__ == '__main__':
     main()
-
 
